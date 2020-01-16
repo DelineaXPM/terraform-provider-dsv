@@ -1,10 +1,10 @@
-module terraform-provider-dsv
+module github.com/thycotic/terraform-provider-dsv
 
 require (
-	github.com/amigus/dsv-sdk-go v0.0.0-00010101000000-000000000000
 	github.com/hashicorp/terraform v0.12.14
+	github.com/thycotic/dsv-sdk-go v0.0.0-20200116184609-53e6e5a3ba69
 )
 
-replace github.com/amigus/dsv-sdk-go => ../dsv-sdk-go
+replace github.com/thycotic/dsv-sdk-go => ../dsv-sdk-go
 
 go 1.13

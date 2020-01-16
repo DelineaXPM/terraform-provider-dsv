@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/amigus/dsv-sdk-go/vault"
+	"github.com/thycotic/dsv-sdk-go/vault"
 	"github.com/hashicorp/terraform/helper/schema"
 )
 
