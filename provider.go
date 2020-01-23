@@ -1,15 +1,17 @@
 package main
 
 import (
-	"github.com/thycotic/dsv-sdk-go/vault"
 	"github.com/hashicorp/terraform/helper/schema"
+	"github.com/thycotic/dsv-sdk-go/vault"
 )
 
 func providerConfig(d *schema.ResourceData) (interface{}, error) {
 	return vault.Configuration{
-		Tenant:       d.Get("tenant").(string),
-		ClientID:     d.Get("client_id").(string),
-		ClientSecret: d.Get("client_secret").(string),
+		Tenant: d.Get("tenant").(string),
+		Credentials: vault.ClientCredential{
+			ClientID:     d.Get("client_id").(string),
+			ClientSecret: d.Get("client_secret").(string),
+		},
 	}, nil
 }
 

@@ -1,14 +1,19 @@
 package main
 
 import (
-	"github.com/thycotic/dsv-sdk-go/vault"
 	"github.com/hashicorp/terraform/helper/schema"
+	"github.com/thycotic/dsv-sdk-go/vault"
 	"log"
 )
 
 func dataSourceRoleRead(d *schema.ResourceData, meta interface{}) error {
-	dsv := vault.New(meta.(vault.Configuration))
 	name := d.Get("name").(string)
+	dsv, err := vault.New(meta.(vault.Configuration))
+
+	if err != nil {
+		log.Printf("[DEBUG] configuration error", err)
+		return err
+	}
 
 	log.Printf("[DEBUG] getting role %s", name)
 

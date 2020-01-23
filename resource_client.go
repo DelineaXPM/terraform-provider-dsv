@@ -3,16 +3,22 @@ package main
 import (
 	"log"
 
-	"github.com/thycotic/dsv-sdk-go/vault"
 	"github.com/hashicorp/terraform/helper/schema"
+	"github.com/thycotic/dsv-sdk-go/vault"
 )
 
 func resourceClientCreate(d *schema.ResourceData, meta interface{}) error {
-	dsv := vault.New(meta.(vault.Configuration))
 	role := d.Get("role").(string)
+	dsv, err := vault.New(meta.(vault.Configuration))
+
+	if err != nil {
+		log.Printf("[DEBUG] configuration error", err)
+		return err
+	}
+
 	client := new(vault.Client)
 	client.RoleName = role
-	err := dsv.New(client)
+	err = dsv.New(client)
 
 	if err != nil {
 		log.Printf("[DEBUG] unable to create client for role %s: %s", role, err)
@@ -26,9 +32,13 @@ func resourceClientCreate(d *schema.ResourceData, meta interface{}) error {
 }
 
 func resourceClientDelete(d *schema.ResourceData, meta interface{}) error {
-	dsv := vault.New(meta.(vault.Configuration))
 	clientID := d.Get("client_id").(string)
+	dsv, err := vault.New(meta.(vault.Configuration))
 
+	if err != nil {
+		log.Printf("[DEBUG] configuration error", err)
+		return err
+	}
 	log.Printf("[DEBUG] getting client %s", clientID)
 
 	client, err := dsv.Client(clientID)
