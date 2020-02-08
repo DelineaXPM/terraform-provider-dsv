@@ -11,7 +11,7 @@ func dataSourceRoleRead(d *schema.ResourceData, meta interface{}) error {
 	dsv, err := vault.New(meta.(vault.Configuration))
 
 	if err != nil {
-		log.Printf("[DEBUG] configuration error", err)
+		log.Printf("[DEBUG] configuration error: %s", err)
 		return err
 	}
 
@@ -20,7 +20,7 @@ func dataSourceRoleRead(d *schema.ResourceData, meta interface{}) error {
 	role, err := dsv.Role(name)
 
 	if err != nil {
-		log.Print("[DEBUG] unable to get role", err)
+		log.Printf("[DEBUG] unable to get role: %s", err)
 		return err
 	}
 

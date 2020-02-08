@@ -11,7 +11,7 @@ func dataSourceClientRead(d *schema.ResourceData, meta interface{}) error {
 	dsv, err := vault.New(meta.(vault.Configuration))
 
 	if err != nil {
-		log.Printf("[DEBUG] configuration error", err)
+		log.Printf("[DEBUG] configuration error: %s", err)
 		return err
 	}
 
@@ -20,7 +20,7 @@ func dataSourceClientRead(d *schema.ResourceData, meta interface{}) error {
 	client, err := dsv.Client(clientID)
 
 	if err != nil {
-		log.Print("[DEBUG] unable to get client", err)
+		log.Printf("[DEBUG] unable to get client: %s", err)
 		return err
 	}
 

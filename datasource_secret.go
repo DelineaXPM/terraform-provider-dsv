@@ -14,7 +14,7 @@ func dataSourceSecretRead(d *schema.ResourceData, meta interface{}) error {
 	dsv, err := vault.New(meta.(vault.Configuration))
 
 	if err != nil {
-		log.Printf("[DEBUG] configuration error", err)
+		log.Printf("[DEBUG] configuration error: %s", err)
 		return err
 	}
 	log.Printf("[DEBUG] getting secret %s", path)
@@ -22,7 +22,7 @@ func dataSourceSecretRead(d *schema.ResourceData, meta interface{}) error {
 	secret, err := dsv.Secret(path)
 
 	if err != nil {
-		log.Print("[DEBUG] unable to get secret", err)
+		log.Printf("[DEBUG] unable to get secret: %s", err)
 		return err
 	}
 
