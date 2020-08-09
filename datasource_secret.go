@@ -28,21 +28,26 @@ func dataSourceSecretRead(d *schema.ResourceData, meta interface{}) error {
 
 	d.SetId(secret.ID)
 
-	// if element is defined, extract it from the secrets data map and return it
-	if element := d.Get("element").(string); element != "" {
-		if theElement, ok := secret.Data[element]; ok {
-			log.Printf("[DEBUG] returning %s from .data as the secret", element)
-			d.Set("contents", theElement)
-			return nil
+	if element := d.Get("element"); element != "" {
+		// if element is defined, extract it from the secrets data map and return it
+		switch v := secret.Data[element.(string)].(type) {
+		case string:
+			log.Printf("[DEBUG] returning string %s from .data as the secret", v)
+			d.Set("contents", v)
+		case map[string]interface{}:
+			s, _ := json.Marshal(v)
+			log.Printf("[DEBUG] returning JSON %s from .data as the secret", s)
+			d.Set("contents", string(s[:]))
+		default:
+			return fmt.Errorf("element %s is unexpected data type %T", v, v)
 		}
-		return fmt.Errorf("element %s not in .data", element)
+	} else {
+		// just marshal the whole thing back into JSON and return that
+		s, _ := json.Marshal(secret.Data)
+
+		log.Printf("[DEBUG] returning .data as the secret")
+		d.Set("contents", string(s[:]))
 	}
-
-	data, _ := json.Marshal(secret.Data)
-
-	// just marshal the whole thing back into JSON and return that
-	d.Set("contents", data)
-	log.Printf("[DEBUG] returning .data as the secret")
 	return nil
 }
 
