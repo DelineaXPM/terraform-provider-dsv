@@ -1,3 +1,5 @@
+![release](https://github.com/thycotic/terraform-provider-dsv/workflows/release/badge.svg)
+
 # Thycotic DevOps Secrets Vault - Terraform Provider
 
 The [Thycotic](https://thycotic.com/)
