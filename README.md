@@ -2,59 +2,68 @@
 
 # Thycotic DevOps Secrets Vault - Terraform Provider
 
-The [Thycotic](https://thycotic.com/)
-[DevOps Secrets Vault](https://thycotic.com/products/devops-secrets-vault-password-management/) (DSV)
-[Terraform](https://www.terraform.io/) Provider makes Secrets data available and provisions client
-secrets for existing roles.
+The [Thycotic](https://thycotic.com/) [DevOps Secrets Vault](https://thycotic.com/products/devops-secrets-vault-password-management/) (DSV) [Terraform](https://www.terraform.io/) Provider makes Secrets data available and provisions client secrets for existing roles.
 
 ## Installation
 
-### Install the executable
+The latest release can be downloaded from [here](https://github.com/thycotic/terraform-provider-dsv/releases/latest).
 
-```bash
-go get github.com/thycotic/terraform-provider-dsv
+### Terraform 0.12 and earlier
+
+Extract the specific file for your OS and Architecture to the plugins directory of the user's profile. You may have to create the directory.
+
+| OS      | Default Path                    |
+| ------- | ------------------------------- |
+| Linux   | `~/.terraform.d/plugins`        |
+| Windows | `%APPDATA%\terraform.d\plugins` |
+
+### Terraform 0.13 and later
+
+Terraform 0.13 uses a different file system layout for 3rd party providers. More information on this can be found [here](https://www.terraform.io/upgrade-guides/0-13.html#new-filesystem-layout-for-local-copies-of-providers). The following folder path will need to be created in the plugins directory of the user's profile.
+
+#### Windows
+
+```text
+%APPDATA%\TERRAFORM.D\PLUGINS
+└───terraform.thycotic.com
+    └───thycotic
+        └───dsv
+            └───1.0.0
+                └───windows_amd64
 ```
 
-The executable is now available in `$GOPATH/bin`
+#### Linux
 
-### Install Terraform
+```text
+~/.terraform.d/plugins
+└───terraform.thycotic.com
+    └───thycotic
+        └───dsv
+            └───1.0.0
+                ├───linux_amd64
+```
 
-1. Download the platform-specific static executable [here](https://www.terraform.io/downloads.html).
-2. Copy or link it to a directory in `$PATH` of the target environment.
+## Usage
 
+For Terraform 0.13+, include the `terraform` block in your configuration or plan to that specifies the provider:
 
-### Make the executable available to Terraform
+```terraform
+terraform {
+    required_providers {
+        dsv = {
+            source = "terraform.thycotic.com/thycotic/dsv"
+            version = "~> 1.0"
+        }
+    }
+}
+```
 
-Copy or link the executable into the Terraform _plugins directory_ of the target
-environment. Refer to the Terraform [installation instructions](https://www.terraform.io/docs/plugins/basics.html#installing-plugins)
-for the platform-specific location. It is `~/.terraform.d/plugins` on Linux and
-MacOS.
+To run the example, create a `terraform.tfvars`:
 
-## Examples
-
-`example.tf` retrieves a secret and role from DSV then creates a `client_id` for
-the role.
-
-### Run `example.tf`
-
-1. Create a `terraform.tfvars`:
-
-    ```terraform
-    dsv_client_id     = "a54bc1b6-7dd7-4fb1-a8ba-bbfa81820e40"
-    dsv_client_secret = "xxxxxxxxxxxxxxxxxxxxxxxxx-xxxxxxxxxxx-xxxxx"
-    dsv_tenant        = "mytenant"
-    dsv_role_name     = "example-role"
-    dsv_secret_path   = "/path/to/a/test/secret"
-    ```
-
-2. "Apply" the example Terraform plan:
-
-    ```bash
-    terraform apply -auto-approve
-    ```
-
-3. (Optional) delete the newly created `client_id`
-
-    ```bash
-    terraform destroy -auto-approve
-    ```
+```json
+dsv_client_id     = "a54bc1b6-7dd7-4fb1-a8ba-bbfa81820e40"
+dsv_client_secret = "xxxxxxxxxxxxxxxxxxxxxxxxx-xxxxxxxxxxx-xxxxx"
+dsv_tenant        = "mytenant"
+dsv_role_name     = "example-role"
+dsv_secret_path   = "/path/to/a/test/secret"
+```
