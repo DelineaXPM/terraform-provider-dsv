@@ -3,8 +3,8 @@ package main
 import (
 	"log"
 
+	"github.com/DelineaXPM/dsv-sdk-go/v2/vault"
 	"github.com/hashicorp/terraform/helper/schema"
-	"github.com/thycotic/dsv-sdk-go/vault"
 )
 
 func providerConfig(d *schema.ResourceData) (interface{}, error) {
