@@ -1,9 +1,10 @@
 package main
 
 import (
-	"github.com/hashicorp/terraform/helper/schema"
-	"github.com/thycotic/dsv-sdk-go/vault"
 	"log"
+
+	"github.com/DelineaXPM/dsv-sdk-go/v2/vault"
+	"github.com/hashicorp/terraform/helper/schema"
 )
 
 func dataSourceClientRead(d *schema.ResourceData, meta interface{}) error {

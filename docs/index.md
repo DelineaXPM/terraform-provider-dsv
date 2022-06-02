@@ -6,9 +6,9 @@ description: |-
   
 ---
 
-# Thycotic DevOps Secrets Vault - Terraform Provider
+# Delinea DevOps Secrets Vault - Terraform Provider
 
-The [Thycotic](https://thycotic.com/) [DevOps Secrets Vault](https://thycotic.com/products/devops-secrets-vault-password-management/) (DSV) [Terraform](https://www.terraform.io/) Provider makes Secrets data available and provisions client secrets for existing roles.
+The [Delinea](https://delinea.com/) [DevOps Secrets Vault](https://delinea.com/products/devops-secrets-management-vault) (DSV) [Terraform](https://www.terraform.io/) Provider makes Secrets data available and provisions client secrets for existing roles.
 
 ## Example Usage
 
@@ -18,7 +18,7 @@ For Terraform 0.13+, include the `terraform` block in your configuration or plan
 terraform {
     required_providers {
         dsv = {
-            source = "terraform.thycotic.com/thycotic/dsv"
+            source = "terraform.delinea.com/delinea/dsv"
             version = "~> 1.0"
         }
     }
@@ -37,11 +37,11 @@ dsv_secret_path   = "/path/to/a/test/secret"
 
 ### Required
 
-- **client_id** (String) The DevOps Secrets Vault client_id
-- **client_secret** (String, Sensitive) The DevOps Secrets Vault client_secret
-- **tenant** (String) The DevOps Secrets Vault tenant
+- `client_id` (String) The DevOps Secrets Vault client_id
+- `client_secret` (String, Sensitive) The DevOps Secrets Vault client_secret
+- `tenant` (String) The DevOps Secrets Vault tenant
 
 ### Optional
 
-- **tld** (String) The DSV tenant top-level domain
-- **url_template** (String) The DSV SDK API URL template
+- `tld` (String) The DSV tenant top-level domain
+- `url_template` (String) The DSV SDK API URL template

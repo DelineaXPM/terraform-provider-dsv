@@ -1,12 +1,12 @@
-![release](https://github.com/thycotic/terraform-provider-dsv/workflows/release/badge.svg)
+![release](https://github.com/DelineaXPM/terraform-provider-dsv/workflows/release/badge.svg)
 
-# Thycotic DevOps Secrets Vault - Terraform Provider
+# Delinea DevOps Secrets Vault - Terraform Provider
 
-The [Thycotic](https://thycotic.com/) [DevOps Secrets Vault](https://thycotic.com/products/devops-secrets-vault-password-management/) (DSV) [Terraform](https://www.terraform.io/) Provider makes Secrets data available and provisions client secrets for existing roles.
+The [Delinea](https://delinea.com/) [DevOps Secrets Vault](https://delinea.com/products/devops-secrets-management-vault) (DSV) [Terraform](https://www.terraform.io/) Provider makes Secrets data available and provisions client secrets for existing roles.
 
 ## Installation
 
-The latest release can be downloaded from [here](https://github.com/thycotic/terraform-provider-dsv/releases/latest).
+The latest release can be downloaded from [here](https://github.com/DelineaXPM/terraform-provider-dsv/releases/latest).
 
 ### Terraform 0.12 and earlier
 
@@ -25,8 +25,8 @@ Terraform 0.13 uses a different file system layout for 3rd party providers. More
 
 ```text
 %APPDATA%\TERRAFORM.D\PLUGINS
-└───terraform.thycotic.com
-    └───thycotic
+└───terraform.delinea.com
+    └───delinea
         └───dsv
             └───1.0.0
                 └───windows_amd64
@@ -36,8 +36,8 @@ Terraform 0.13 uses a different file system layout for 3rd party providers. More
 
 ```text
 ~/.terraform.d/plugins
-└───terraform.thycotic.com
-    └───thycotic
+└───terraform.delinea.com
+    └───delinea
         └───dsv
             └───1.0.0
                 ├───linux_amd64
@@ -51,7 +51,7 @@ For Terraform 0.13+, include the `terraform` block in your configuration or plan
 terraform {
     required_providers {
         dsv = {
-            source = "terraform.thycotic.com/thycotic/dsv"
+            source = "terraform.delinea.com/delinea/dsv"
             version = "~> 1.0"
         }
     }

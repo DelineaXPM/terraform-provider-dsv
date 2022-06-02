@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"log"
 
+	"github.com/DelineaXPM/dsv-sdk-go/v2/vault"
 	"github.com/hashicorp/terraform/helper/schema"
-	"github.com/thycotic/dsv-sdk-go/vault"
 )
 
 func dataSourceSecretRead(d *schema.ResourceData, meta interface{}) error {
