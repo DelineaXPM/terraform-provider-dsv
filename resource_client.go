@@ -12,7 +12,7 @@ func resourceClientCreate(d *schema.ResourceData, meta interface{}) error {
 	dsv, err := vault.New(meta.(vault.Configuration))
 
 	if err != nil {
-		log.Printf("[DEBUG] configuration error", err)
+		log.Print("[DEBUG] configuration error", err)
 		return err
 	}
 
@@ -36,7 +36,7 @@ func resourceClientDelete(d *schema.ResourceData, meta interface{}) error {
 	dsv, err := vault.New(meta.(vault.Configuration))
 
 	if err != nil {
-		log.Printf("[DEBUG] configuration error", err)
+		log.Print("[DEBUG] configuration error", err)
 		return err
 	}
 	log.Printf("[DEBUG] getting client %s", clientID)
