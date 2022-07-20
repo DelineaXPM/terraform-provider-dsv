@@ -67,3 +67,11 @@ dsv_tenant        = "mytenant"
 dsv_role_name     = "example-role"
 dsv_secret_path   = "/path/to/a/test/secret"
 ```
+
+To run with AWS as auth provider 
+```json
+dsv_auth_provider = "aws"
+dsv_tenant        = "mytenant"
+dsv_role_name     = "example-role"
+dsv_secret_path   = "/path/to/a/test/secret"
+```
