@@ -2,7 +2,9 @@ package main
 
 import (
 	"log"
+	"strings"
 
+	"github.com/DelineaXPM/dsv-sdk-go/v2/auth"
 	"github.com/DelineaXPM/dsv-sdk-go/v2/vault"
 	"github.com/hashicorp/terraform/helper/schema"
 )
@@ -15,6 +17,16 @@ func providerConfig(d *schema.ResourceData) (interface{}, error) {
 			ClientSecret: d.Get("client_secret").(string),
 		},
 	}
+
+	if prvd, exists := d.GetOk("auth_provider"); exists {
+		switch strings.ToLower(prvd.(string)) {
+		case "aws":
+			c.Provider = auth.AWS
+		default:
+			c.Provider = auth.CLIENT
+		}
+	}
+	log.Printf("[DEBUG] auth provider is set to %+v", c.Provider)
 
 	log.Printf("[DEBUG] tenant is set to %s", c.Tenant)
 
@@ -57,6 +69,12 @@ func Provider() *schema.Provider {
 				Sensitive:   true,
 				Required:    true,
 				Description: "The DevOps Secrets Vault client_secret",
+			},
+			"auth_provider": {
+				Type:        schema.TypeString,
+				Sensitive:   true,
+				Required:    false,
+				Description: "The DevOps Secrets Vault auth_provider",
 			},
 			"tld": {
 				Type:        schema.TypeString,

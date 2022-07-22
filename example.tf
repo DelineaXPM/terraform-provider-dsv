@@ -6,22 +6,27 @@ variable "dsv_client_secret" {
   type = string
 }
 
+variable "dsv_auth_provider" {
+  type = string
+}
+
 variable "dsv_tenant" {
   type = string
 }
 
 variable "dsv_role_name" {
-  type = "string"
+  type = string
 }
 
 variable "dsv_secret_path" {
-  type = "string"
+  type = string
 }
 
 provider "dsv" {
   client_id     = var.dsv_client_id
   client_secret = var.dsv_client_secret
   tenant        = var.dsv_tenant
+  auth_provider = var.dsv_auth_provider
 }
 
 data "dsv_secret" "username" {
