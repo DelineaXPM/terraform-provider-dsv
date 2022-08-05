@@ -60,7 +60,7 @@ terraform {
 
 To run the example, create a `terraform.tfvars`:
 
-```text
+```hcl
 dsv_client_id     = "a54bc1b6-7dd7-4fb1-a8ba-bbfa81820e40"
 dsv_client_secret = "xxxxxxxxxxxxxxxxxxxxxxxxx-xxxxxxxxxxx-xxxxx"
 dsv_tenant        = "mytenant"
