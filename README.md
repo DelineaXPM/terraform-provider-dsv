@@ -69,7 +69,7 @@ dsv_secret_path   = "/path/to/a/test/secret"
 ```
 
 To run with AWS as auth provider 
-```text
+```hcl
 dsv_auth_provider = "aws"
 dsv_tenant        = "mytenant"
 dsv_role_name     = "example-role"
