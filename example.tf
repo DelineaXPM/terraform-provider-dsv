@@ -26,7 +26,6 @@ provider "dsv" {
   client_id     = var.dsv_client_id
   client_secret = var.dsv_client_secret
   tenant        = var.dsv_tenant
-  auth_provider = var.dsv_auth_provider
 }
 
 data "dsv_secret" "username" {
