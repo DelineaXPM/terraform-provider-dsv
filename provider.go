@@ -65,6 +65,7 @@ func Provider() *schema.Provider {
 			},
 			"client_secret": {
 				Type:        schema.TypeString,
+				Sensitive:   true,
 				Optional:    true,
 				Description: "The DevOps Secrets Vault client_secret",
 			},
