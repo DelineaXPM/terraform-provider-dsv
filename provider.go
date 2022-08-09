@@ -18,12 +18,11 @@ func providerConfig(d *schema.ResourceData) (interface{}, error) {
 		},
 	}
 
+	c.Provider = auth.CLIENT
 	if prvd, exists := d.GetOk("auth_provider"); exists {
 		switch strings.ToLower(prvd.(string)) {
 		case "aws":
 			c.Provider = auth.AWS
-		default:
-			c.Provider = auth.CLIENT
 		}
 	}
 	log.Printf("[DEBUG] auth provider is set to %+v", c.Provider)
@@ -61,19 +60,18 @@ func Provider() *schema.Provider {
 			},
 			"client_id": {
 				Type:        schema.TypeString,
-				Required:    true,
+				Optional:    true,
 				Description: "The DevOps Secrets Vault client_id",
 			},
 			"client_secret": {
 				Type:        schema.TypeString,
 				Sensitive:   true,
-				Required:    true,
+				Optional:    true,
 				Description: "The DevOps Secrets Vault client_secret",
 			},
 			"auth_provider": {
 				Type:        schema.TypeString,
-				Sensitive:   true,
-				Required:    false,
+				Optional:    true,
 				Description: "The DevOps Secrets Vault auth_provider",
 			},
 			"tld": {
