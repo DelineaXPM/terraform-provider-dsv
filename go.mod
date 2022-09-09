@@ -2,6 +2,7 @@ module github.com/DelineaXPM/terraform-provider-dsv/v2
 
 require (
 	github.com/DelineaXPM/dsv-sdk-go/v2 v2.0.1-0.20220719195420-2376a5c350ab
+	github.com/Masterminds/semver v1.5.0
 	github.com/hashicorp/terraform v0.12.14
 	github.com/magefile/mage v1.13.0
 	github.com/pterm/pterm v0.12.45
