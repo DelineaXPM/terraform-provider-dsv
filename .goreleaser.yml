@@ -120,7 +120,7 @@ announce:
     enabled: true
     # The name of the channel that the user selected as a destination for webhook messages.
     channel: '{{ .Env.SLACK_CHANNEL }}'
-    message:  ':terraform: {{ .ProjectName }} {{ .Tag }} is out! Terraform Registry: https://registry.terraform.io/providers/delineaxpm/dsv/{{ trimprefix .Tag "v" }} GitHub release: {{ .ReleaseURL }}'
+    message_template:  ':terraform: {{ .ProjectName }} {{ .Tag }} is out! Terraform Registry: https://registry.terraform.io/providers/delineaxpm/dsv/{{ trimprefix .Tag "v" }} GitHub release: {{ .ReleaseURL }}'
     # Emoji to use as the icon for this message. Overrides icon_url.
     icon_emoji: ':tada:'
 
