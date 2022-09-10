@@ -39,21 +39,21 @@ func createDirectories() error {
 func Init() error { //nolint:deadcode // Not dead, it's alive.
 	pterm.DefaultHeader.Println("running Init()")
 
-	if ci.IsCI() {
-		pterm.DefaultHeader.Println("CI detected, minimal init being applied")
-		pterm.Info.Println("Mod Download")
-		mg.Deps(
-			gotools.Go{}.Tidy,
-		)
+	pterm.Info.Println("Mod Download")
+	mg.Deps(
+		gotools.Go{}.Tidy,
+	)
 
-		pterm.Info.Println("Installing Core CI Dependencies")
-		if err := tooling.SilentInstallTools([]string{
-			"github.com/goreleaser/goreleaser@latest",
-			"github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@latest",
-			// "github.com/release-lab/whatchanged/cmd/whatchanged@latest",
-		}); err != nil {
-			return err
-		}
+	pterm.Info.Println("Installing Core CI Dependencies")
+	if err := tooling.SilentInstallTools([]string{
+		"github.com/goreleaser/goreleaser@latest",
+		"github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@latest",
+		// "github.com/release-lab/whatchanged/cmd/whatchanged@latest",
+	}); err != nil {
+		return err
+	}
+	if ci.IsCI() {
+		pterm.DefaultHeader.Println("CI detected, minimal init was applied, finished")
 		return nil
 	}
 	mg.SerialDeps(
