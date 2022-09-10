@@ -14,6 +14,7 @@ concurrency:
 jobs:
   stale:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       # Config Options: https://github.com/actions/stale#list-of-input-options
       - uses: actions/stale@532554b8a8498a0e006fbcde824b048728c4178f # renovate: tag=v5
