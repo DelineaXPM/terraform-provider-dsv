@@ -52,6 +52,7 @@ dsv_role_name     = "example-role"
 dsv_secret_path   = "/path/to/a/test/secret"
 ```
 
+
 ```terraform
 variable "dsv_client_id" {
   type = string
@@ -117,3 +118,4 @@ output "password" {
   value = data.dsv_secret.password.contents
 }
 ```
+
