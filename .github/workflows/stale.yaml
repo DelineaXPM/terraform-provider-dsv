@@ -17,7 +17,7 @@ jobs:
     timeout-minutes: 5
     steps:
       # Config Options: https://github.com/actions/stale#list-of-input-options
-      - uses: actions/stale@532554b8a8498a0e006fbcde824b048728c4178f # renovate: tag=v5
+      - uses: actions/stale@99b6c709598e2b0d0841cd037aaf1ba07a4410bd # tag=v5
         with:
           days-before-stale: 30
           days-before-close: 5
