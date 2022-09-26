@@ -4,7 +4,7 @@ require (
 	github.com/DelineaXPM/dsv-sdk-go/v2 v2.0.1-0.20220719195420-2376a5c350ab
 	github.com/hashicorp/terraform v0.12.17
 	github.com/magefile/mage v1.13.0
-	github.com/pterm/pterm v0.12.46
+	github.com/pterm/pterm v0.12.47
 	github.com/sheldonhull/magetools v0.0.12
 )
 
@@ -30,7 +30,7 @@ require (
 	github.com/google/go-cmp v0.5.7 // indirect
 	github.com/google/uuid v1.1.1 // indirect
 	github.com/googleapis/gax-go/v2 v2.0.5 // indirect
-	github.com/gookit/color v1.5.0 // indirect
+	github.com/gookit/color v1.5.2 // indirect
 	github.com/hashicorp/errwrap v1.0.0 // indirect
 	github.com/hashicorp/go-cleanhttp v0.5.2 // indirect
 	github.com/hashicorp/go-getter v1.6.1 // indirect
@@ -78,7 +78,7 @@ require (
 	golang.org/x/mod v0.5.1 // indirect
 	golang.org/x/net v0.0.0-20220127200216-cd36cc0744dd // indirect
 	golang.org/x/oauth2 v0.0.0-20190604053449-0f29369cfe45 // indirect
-	golang.org/x/sys v0.0.0-20220517195934-5e4e11fc645e // indirect
+	golang.org/x/sys v0.0.0-20220704084225-05e143d24a9e // indirect
 	golang.org/x/term v0.0.0-20210927222741-03fcf44c2211 // indirect
 	golang.org/x/text v0.3.7 // indirect
 	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1 // indirect
