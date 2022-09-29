@@ -2,7 +2,6 @@ module github.com/DelineaXPM/terraform-provider-dsv/v2
 
 require (
 	github.com/DelineaXPM/dsv-sdk-go/v2 v2.0.1-0.20220719195420-2376a5c350ab
-	github.com/hashicorp/terraform v0.12.17
 	github.com/magefile/mage v1.13.0
 	github.com/pterm/pterm v0.12.47
 	github.com/sheldonhull/magetools v0.0.12
@@ -33,8 +32,6 @@ require (
 	github.com/bgentry/go-netrc v0.0.0-20140422174119-9fd32a8b3d3d // indirect
 	github.com/bgentry/speakeasy v0.1.0 // indirect
 	github.com/bitfield/script v0.20.2 // indirect
-	github.com/blang/semver v3.5.1+incompatible // indirect
-	github.com/bmatcuk/doublestar v1.1.5 // indirect
 	github.com/containerd/console v1.0.3 // indirect
 	github.com/dustin/go-humanize v1.0.0 // indirect
 	github.com/fatih/color v1.9.0 // indirect
@@ -52,9 +49,8 @@ require (
 	github.com/hashicorp/go-safetemp v1.0.0 // indirect
 	github.com/hashicorp/go-uuid v1.0.1 // indirect
 	github.com/hashicorp/go-version v1.2.1 // indirect
-	github.com/hashicorp/hcl v0.0.0-20170504190234-a4b07c25de5f // indirect
 	github.com/hashicorp/hcl/v2 v2.3.0 // indirect
-	github.com/hashicorp/hil v0.0.0-20190212112733-ab17b08d6590 // indirect
+	github.com/hashicorp/terraform-plugin-sdk v1.7.0
 	github.com/hashicorp/terraform-svchost v0.0.0-20191011084731-65d371908596 // indirect
 	github.com/hashicorp/yamux v0.0.0-20181012175058-2f1d1f20f75d // indirect
 	github.com/itchyny/gojq v0.12.7 // indirect
@@ -71,13 +67,12 @@ require (
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
 	github.com/mitchellh/go-testing-interface v1.0.4 // indirect
 	github.com/mitchellh/go-wordwrap v1.0.0 // indirect
-	github.com/mitchellh/hashstructure v1.0.0 // indirect
 	github.com/mitchellh/mapstructure v1.1.2 // indirect
 	github.com/mitchellh/reflectwalk v1.0.1 // indirect
 	github.com/oklog/run v1.0.0 // indirect
 	github.com/posener/complete v1.2.1 // indirect
 	github.com/rivo/uniseg v0.2.0 // indirect
-	github.com/spf13/afero v1.2.1 // indirect
+	github.com/spf13/afero v1.2.2 // indirect
 	github.com/ulikunitz/xz v0.5.10 // indirect
 	github.com/vmihailenco/msgpack v4.0.4+incompatible // indirect
 	github.com/xo/terminfo v0.0.0-20210125001918-ca9a967f8778 // indirect
