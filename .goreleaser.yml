@@ -3,8 +3,8 @@ dist: .artifacts/goreleaser
 # Visit https://goreleaser.com for documentation on how to customize this
 # behavior.
 env:
-- SLACK_CHANNEL='{{ .Env.SLACK_CHANNEL }}'
-- SLACK_WEBHOOK='{{ .Env.SLACK_WEBHOOK }}'
+  - SLACK_CHANNEL='{{ .Env.SLACK_CHANNEL }}'
+  - SLACK_WEBHOOK='{{ .Env.SLACK_WEBHOOK }}'
 before:
   hooks:
     # this is just an example and not a requirement for provider building/publishing
@@ -120,6 +120,6 @@ announce:
     enabled: true
     # The name of the channel that the user selected as a destination for webhook messages.
     channel: '{{ .Env.SLACK_CHANNEL }}'
-    message_template:  ':terraform: {{ .ProjectName }} {{ .Tag }} is out! Terraform Registry: https://registry.terraform.io/providers/DelineaXPM/dsv/{{ trimprefix .Tag "v" }} GitHub release: {{ .ReleaseURL }}'
+    message_template: ':terraform: {{ .ProjectName }} {{ .Tag }} is out! Terraform Registry: https://registry.terraform.io/providers/DelineaXPM/dsv/{{ trimprefix .Tag "v" }} GitHub release: {{ .ReleaseURL }}'
     # Emoji to use as the icon for this message. Overrides icon_url.
     icon_emoji: ':tada:'
