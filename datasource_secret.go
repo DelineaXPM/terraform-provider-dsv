@@ -6,7 +6,7 @@ import (
 	"log"
 
 	"github.com/DelineaXPM/dsv-sdk-go/v2/vault"
-	"github.com/hashicorp/terraform/helper/schema"
+	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 )
 
 func dataSourceSecretRead(d *schema.ResourceData, meta interface{}) error {
