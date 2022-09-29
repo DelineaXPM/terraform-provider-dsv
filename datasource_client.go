@@ -4,7 +4,7 @@ import (
 	"log"
 
 	"github.com/DelineaXPM/dsv-sdk-go/v2/vault"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 )
 
 func dataSourceClientRead(d *schema.ResourceData, meta interface{}) error {

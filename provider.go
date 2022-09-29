@@ -6,7 +6,7 @@ import (
 
 	"github.com/DelineaXPM/dsv-sdk-go/v2/auth"
 	"github.com/DelineaXPM/dsv-sdk-go/v2/vault"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 )
 
 func providerConfig(d *schema.ResourceData) (interface{}, error) {
