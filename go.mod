@@ -4,7 +4,7 @@ require (
 	github.com/DelineaXPM/dsv-sdk-go/v2 v2.0.1-0.20220719195420-2376a5c350ab
 	github.com/magefile/mage v1.13.0
 	github.com/pterm/pterm v0.12.47
-	github.com/sheldonhull/magetools v0.0.12
+	github.com/sheldonhull/magetools v1.0.0
 )
 
 require (
