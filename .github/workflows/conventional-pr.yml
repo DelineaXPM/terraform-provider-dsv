@@ -7,6 +7,7 @@ on:
       - opened
       - edited
       - synchronize
+  workflow_call:
 permissions:
   pull-requests: read
 env:
