@@ -10,7 +10,7 @@ import (
 	"github.com/sheldonhull/magetools/pkg/req"
 )
 
-func checkEnvVar(envVar string, required bool) (string, error) {
+func checkEnvVar(envVar string, required bool) (string, error) { //nolint:unparam // leaving this as return string value for now
 	envVarValue := os.Getenv(envVar)
 	if envVarValue == "" && required {
 		pterm.Error.Printfln(
