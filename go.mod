@@ -3,7 +3,7 @@ module github.com/DelineaXPM/terraform-provider-dsv/v2
 require (
 	github.com/DelineaXPM/dsv-sdk-go/v2 v2.0.1-0.20220719195420-2376a5c350ab
 	github.com/magefile/mage v1.14.0
-	github.com/pterm/pterm v0.12.50
+	github.com/pterm/pterm v0.12.53
 	github.com/sheldonhull/magetools v1.0.0
 )
 
@@ -92,7 +92,7 @@ require (
 	golang.org/x/oauth2 v0.1.0 // indirect
 	golang.org/x/sys v0.1.0 // indirect
 	golang.org/x/term v0.1.0 // indirect
-	golang.org/x/text v0.4.0 // indirect
+	golang.org/x/text v0.6.0 // indirect
 	google.golang.org/api v0.100.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/genproto v0.0.0-20221024183307-1bc688fe9f3e // indirect
