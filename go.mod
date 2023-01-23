@@ -3,7 +3,7 @@ module github.com/DelineaXPM/terraform-provider-dsv/v2
 require (
 	github.com/DelineaXPM/dsv-sdk-go/v2 v2.0.1-0.20220719195420-2376a5c350ab
 	github.com/magefile/mage v1.14.0
-	github.com/pterm/pterm v0.12.53
+	github.com/pterm/pterm v0.12.54
 	github.com/sheldonhull/magetools v1.0.0
 )
 
@@ -29,7 +29,7 @@ require (
 
 require (
 	atomicgo.dev/cursor v0.1.1 // indirect
-	atomicgo.dev/keyboard v0.2.8 // indirect
+	atomicgo.dev/keyboard v0.2.9 // indirect
 	bitbucket.org/creachadair/shell v0.0.7 // indirect
 	cloud.google.com/go v0.104.0 // indirect
 	github.com/agext/levenshtein v1.2.3 // indirect
