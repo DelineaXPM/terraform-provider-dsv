@@ -76,3 +76,10 @@ dsv_tenant        = "mytenant"
 dsv_role_name     = "example-role"
 dsv_secret_path   = "/path/to/a/test/secret"
 ```
+
+## Troubleshooting
+
+### Failure running `terraform init -upgrade`
+
+- Try pinning the provider version if you are currently using a range like `~> 1.0` and instead use the latest version found on the [registry](https://registry.terraform.io/providers/DelineaXPM/dsv/latest).
+- Additionally, if you have `TF_PLUGIN_CACHE_DIR` environment set, try `unset TF_PLUGIN_CACHE_DIR` or `$ENV:TF_PLUGIN_CACHE_DIR = $null` and run the command again to see if it helps the upgrade succeed.
