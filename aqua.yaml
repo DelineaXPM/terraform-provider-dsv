@@ -3,9 +3,9 @@
 # https://aquaproj.github.io/
 registries:
   - type: standard
-    ref: v3.138.0 # renovate: depName=aquaproj/aqua-registry
+    ref: v3.149.0 # renovate: depName=aquaproj/aqua-registry
 packages:
-  - name: miniscruff/changie@v1.11.1
+  - name: miniscruff/changie@v1.12.0
   - name: golang/go@go1.20.1
   - name: direnv/direnv@v2.32.2
   - name: magefile/mage@v1.14.0
@@ -21,3 +21,6 @@ packages:
   - name: direnv/direnv@v2.32.2
   - name: thycotic/dsv-cli@v1.40.1
   - name: hashicorp/terraform@v1.4.2
+  - name: git-town/git-town@v7.9.0
+  - name: DelineaXPM/dsv-cli@v1.40.2
+  - name: gotestyourself/gotestsum@v1.9.0
