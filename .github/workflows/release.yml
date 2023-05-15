@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
 
       # https://github.com/magnetikonline/action-golang-cache
       - name: Setup Golang with cache
@@ -40,7 +40,7 @@ jobs:
 
       - name: Import GPG key
         id: import_gpg
-        uses: crazy-max/ghaction-import-gpg@v5
+        uses: crazy-max/ghaction-import-gpg@72b6676b71ab476b77e676928516f6982eef7a41 # v5
         with:
           gpg_private_key: ${{ secrets.TERRAFORM_REGISTRY_GPG_PRIVATE_KEY }}
           passphrase: ${{ secrets.TERRAFORM_REGISTRY_PASSPHRASE }}
