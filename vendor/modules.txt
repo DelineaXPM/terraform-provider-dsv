@@ -6,6 +6,9 @@ atomicgo.dev/cursor
 atomicgo.dev/keyboard
 atomicgo.dev/keyboard/internal
 atomicgo.dev/keyboard/keys
+# atomicgo.dev/schedule v0.0.2
+## explicit; go 1.18
+atomicgo.dev/schedule
 # bitbucket.org/creachadair/shell v0.0.7
 ## explicit; go 1.16
 bitbucket.org/creachadair/shell
@@ -27,7 +30,7 @@ cloud.google.com/go/storage
 cloud.google.com/go/storage/internal
 cloud.google.com/go/storage/internal/apiv2
 cloud.google.com/go/storage/internal/apiv2/stubs
-# github.com/DelineaXPM/dsv-sdk-go/v2 v2.0.1-0.20220719195420-2376a5c350ab
+# github.com/DelineaXPM/dsv-sdk-go/v2 v2.0.1-0.20230517142143-33500066cdc1
 ## explicit; go 1.18
 github.com/DelineaXPM/dsv-sdk-go/v2/auth
 github.com/DelineaXPM/dsv-sdk-go/v2/vault
@@ -153,8 +156,8 @@ github.com/googleapis/gax-go/v2
 github.com/googleapis/gax-go/v2/apierror
 github.com/googleapis/gax-go/v2/apierror/internal/proto
 github.com/googleapis/gax-go/v2/internal
-# github.com/gookit/color v1.5.2
-## explicit; go 1.16
+# github.com/gookit/color v1.5.3
+## explicit; go 1.18
 github.com/gookit/color
 # github.com/hashicorp/errwrap v1.1.0
 ## explicit
@@ -263,13 +266,13 @@ github.com/klauspost/compress/internal/cpuinfo
 github.com/klauspost/compress/internal/snapref
 github.com/klauspost/compress/zstd
 github.com/klauspost/compress/zstd/internal/xxhash
-# github.com/lithammer/fuzzysearch v1.1.5
+# github.com/lithammer/fuzzysearch v1.1.7
 ## explicit; go 1.15
 github.com/lithammer/fuzzysearch/fuzzy
 # github.com/logrusorgru/aurora v2.0.3+incompatible
 ## explicit
 github.com/logrusorgru/aurora
-# github.com/magefile/mage v1.14.0
+# github.com/magefile/mage v1.15.0
 ## explicit; go 1.12
 github.com/magefile/mage/mg
 github.com/magefile/mage/sh
@@ -311,7 +314,7 @@ github.com/oklog/run
 github.com/posener/complete
 github.com/posener/complete/cmd
 github.com/posener/complete/cmd/install
-# github.com/pterm/pterm v0.12.56
+# github.com/pterm/pterm v0.12.61
 ## explicit; go 1.18
 github.com/pterm/pterm
 github.com/pterm/pterm/internal
@@ -427,16 +430,16 @@ golang.org/x/oauth2/google/internal/externalaccount
 golang.org/x/oauth2/internal
 golang.org/x/oauth2/jws
 golang.org/x/oauth2/jwt
-# golang.org/x/sys v0.6.0
+# golang.org/x/sys v0.8.0
 ## explicit; go 1.17
 golang.org/x/sys/internal/unsafeheader
 golang.org/x/sys/plan9
 golang.org/x/sys/unix
 golang.org/x/sys/windows
-# golang.org/x/term v0.5.0
+# golang.org/x/term v0.8.0
 ## explicit; go 1.17
 golang.org/x/term
-# golang.org/x/text v0.8.0
+# golang.org/x/text v0.9.0
 ## explicit; go 1.17
 golang.org/x/text/cases
 golang.org/x/text/internal
