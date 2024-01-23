@@ -39,7 +39,7 @@ func Build() error {
 
 	releaserArgs := []string{
 		"build",
-		"--rm-dist",
+		"--clean",
 		"--snapshot",
 		"--single-target",
 	}
@@ -59,7 +59,7 @@ func BuildAll() error {
 
 	return sh.RunV(binary,
 		"build",
-		"--rm-dist",
+		"--clean",
 		"--snapshot",
 	)
 }
@@ -81,7 +81,7 @@ func Release() error {
 
 	releaserArgs := []string{
 		"release",
-		"--rm-dist",
+		"--clean",
 	}
 	pterm.Debug.Printfln("goreleaser: %+v", releaserArgs)
 
