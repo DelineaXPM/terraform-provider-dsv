@@ -9,10 +9,16 @@ packages:
     tags:
       - release
   - name: golang/go@go1.21.6
+    tags:
+      - release
   - name: direnv/direnv@v2.33.0
   - name: magefile/mage@v1.15.0
+    tags:
+      - release
   - name: charmbracelet/glow@v1.5.1
   - name: goreleaser/goreleaser@v1.23.0
+    tags:
+      - release
   - name: mvdan/gofumpt@v0.5.0
   - name: golang/tools/gorename@v0.17.0
   - name: golang/tools/stringer@v0.17.0
@@ -20,6 +26,8 @@ packages:
   - name: golang/tools/godoc@v0.17.0
   - name: golang/tools/guru@v0.17.0
   - name: anchore/syft@v0.101.1
+    tags:
+      - release
   - name: direnv/direnv@v2.33.0
   - name: thycotic/dsv-cli@v1.40.6
   - name: hashicorp/terraform@v1.7.0
