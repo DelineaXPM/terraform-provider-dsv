@@ -58,7 +58,7 @@ require (
 	github.com/hashicorp/go-uuid v1.0.3 // indirect
 	github.com/hashicorp/go-version v1.6.0 // indirect
 	github.com/hashicorp/hcl/v2 v2.14.1 // indirect
-	github.com/hashicorp/terraform-plugin-sdk v1.17.2
+	github.com/hashicorp/terraform-plugin-sdk/v2 v2.31.0
 	github.com/hashicorp/terraform-svchost v0.0.0-20200729002733-f050f53b9734 // indirect
 	github.com/hashicorp/yamux v0.1.1 // indirect
 	github.com/itchyny/gojq v0.12.7 // indirect
