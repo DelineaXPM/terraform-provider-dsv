@@ -44,14 +44,17 @@ jobs:
         with:
           gpg_private_key: ${{ secrets.TERRAFORM_REGISTRY_GPG_PRIVATE_KEY }}
           passphrase: ${{ secrets.TERRAFORM_REGISTRY_PASSPHRASE }}
-      - name: Run GoReleaser
-        uses: goreleaser/goreleaser-action@7ec5c2b0c6cdda6e8bbb49444bc797dd33d74dd8 # v5.0.0
+      - name: mage-release
+        uses: magefile/mage-action@6a5dcb5fe61f43d7c08a98bc3cf9bc63c308c08e # v3
         with:
           version: latest
-          args: release --clean
+          args: release
         env:
-          GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}
           # GitHub sets this automatically
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SLACK_CHANNEL: ${{ secrets.DSV_SLACK_CHANNEL }}
           SLACK_WEBHOOK: ${{ secrets.DSV_SLACK_WEBHOOK }}
+          DOCKER_ORG: ${{ secrets.DSV_DOCKER_REGISTRY }}
+          GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}
+
+      
