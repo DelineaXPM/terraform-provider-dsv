@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"path/filepath"
 
 	"github.com/magefile/mage/sh"
 	"github.com/pterm/pterm"
