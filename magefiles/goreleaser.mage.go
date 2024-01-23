@@ -74,9 +74,6 @@ func Release() error {
 		return err
 	}
 
-	if _, err = checkEnvVar("DOCKER_ORG", true); err != nil {
-		return err
-	}
 	if _, err = checkEnvVar("GPG_FINGERPRINT", true); err != nil {
 		return err
 	}
