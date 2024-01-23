@@ -1,0 +1,68 @@
+## v1.0.7 (2022-09-01)
+
+### Chore:
+
+- sync latest github workflows, settings, scans, and dev tooling (#10)([`192dcd8`](https://github.com/DelineaXPM/terraform-provider-dsv/commit/192dcd88e8160473513c00710da375f3ac961f5b))
+
+### Documentation:
+
+- adjust example blocks to hcl (#8)([`0efda1e`](https://github.com/DelineaXPM/terraform-provider-dsv/commit/0efda1e78f586533709e4745840050dc6493516d))
+
+### Commits(3):
+
+- [`192dcd8`](https://github.com/DelineaXPM/terraform-provider-dsv/commit/192dcd88e8160473513c00710da375f3ac961f5b) - sync latest github workflows, settings, scans, and dev tooling (#10)
+- [`3c0ab40`](https://github.com/DelineaXPM/terraform-provider-dsv/commit/3c0ab40d347b0dfd7180db957b5799656bb11c6d) - Aws auth support (#9)
+- [`0efda1e`](https://github.com/DelineaXPM/terraform-provider-dsv/commit/0efda1e78f586533709e4745840050dc6493516d) - adjust example blocks to hcl (#8)
+
+## v1.0.6 (2022-07-22)
+
+### Commits(1):
+
+- [`7352347`](https://github.com/DelineaXPM/terraform-provider-dsv/commit/7352347e4f23c574d804d46dca06a61b593743d6) - upgrade releaser to go 1.18
+
+## v1.0.5 (2022-07-22)
+
+### Commits(1):
+
+- [`cb24198`](https://github.com/DelineaXPM/terraform-provider-dsv/commit/cb24198e6f9c0871a95adc04e02805fd658a92ab) - Update release.yml
+
+## v1.0.4 (2022-07-22)
+
+### Commits(4):
+
+- [`51a27b0`](https://github.com/DelineaXPM/terraform-provider-dsv/commit/51a27b075eaae6fb86bd8147eeb37b4fc70b4be0) - Merge pull request #5 from 4killo/aws_auth_support
+- [`dd5cafe`](https://github.com/DelineaXPM/terraform-provider-dsv/commit/dd5cafe112f2cfc8ea724d543334015de976e59b) - Merge pull request #4 from DelineaXPM/endlesstrax-patch1
+- [`ebe2e4f`](https://github.com/DelineaXPM/terraform-provider-dsv/commit/ebe2e4fc864444b708d7137dfe4a54d12eaf8973) - Merge pull request #3 from DelineaXPM/Update-go-getter-version
+- [`a079fd5`](https://github.com/DelineaXPM/terraform-provider-dsv/commit/a079fd5f3b0c5546cea45f201f925587c7350c4a) - Merge pull request #1 from DelineaXPM/delineaKrehl-DeepRebrand
+
+## v1.0.3 (2022-05-11)
+
+### Commits(1):
+
+- [`113f5e2`](https://github.com/DelineaXPM/terraform-provider-dsv/commit/113f5e20d1705f3802b0a7d980de370f3f2223a9) - Update dependencies to fix security vunerabilies:
+
+## v1.0.2 (2022-03-22)
+
+### Commits(2):
+
+- [`f1f6c37`](https://github.com/DelineaXPM/terraform-provider-dsv/commit/f1f6c37d09a0bb4f75b1547f99a009d8784fce87) - Updated the goreleaser
+- [`1b05c05`](https://github.com/DelineaXPM/terraform-provider-dsv/commit/1b05c05f33d6ea0bb4e1353d6b9ebe32120b8943) - Updated dependency
+
+## v1.0.1 (2021-05-07)
+
+### Commits(14):
+
+- [`c7c38fa`](https://github.com/DelineaXPM/terraform-provider-dsv/commit/c7c38fa1bb2f677f43ab2098ea359e955c5d25fb) - Merge pull request #7 from thycotic/ricky-dev
+- [`4400457`](https://github.com/DelineaXPM/terraform-provider-dsv/commit/4400457227d91c4d273d0296f2a35410135297b3) - Merge pull request #6 from The-Migus-Group/master
+- [`44cda2d`](https://github.com/DelineaXPM/terraform-provider-dsv/commit/44cda2d6a82ff4047fa9d8e7e463211e1669aaf1) - Add a release build badge
+- [`a235b3a`](https://github.com/DelineaXPM/terraform-provider-dsv/commit/a235b3abadebf02b3a9e3eca2d7d4dc182ddf578) - Update dsv-sdk-go to v1.0.1
+- [`f6b6377`](https://github.com/DelineaXPM/terraform-provider-dsv/commit/f6b63774617cb31386a71195a16833f65e4b4e8a) - Handle secrets with nested JSON
+- [`27b06e0`](https://github.com/DelineaXPM/terraform-provider-dsv/commit/27b06e0fd6995e83cb199432359dd14b4531cd82) - Create go.yml
+- [`7dd8157`](https://github.com/DelineaXPM/terraform-provider-dsv/commit/7dd815724e0802cd73266fe54c63f6db430a727f) - Fix DEBUG logging so that it shows the error.
+- [`f68e2aa`](https://github.com/DelineaXPM/terraform-provider-dsv/commit/f68e2aa6bcfe23ebc62c3840ff8799dc5882b443) - fixes #1
+- [`516771c`](https://github.com/DelineaXPM/terraform-provider-dsv/commit/516771ce99e50dab686c2e40d5bdee3838885960) - Update to the latest dsv-sdk-go.
+- [`c4744af`](https://github.com/DelineaXPM/terraform-provider-dsv/commit/c4744af16e07580ad159d133b534b2ec0840faeb) - License.
+- [`ebcf340`](https://github.com/DelineaXPM/terraform-provider-dsv/commit/ebcf34025e2d041eeda444e0621e6edbd50555ed) - Add to both install and examples sections
+- [`3e65b1f`](https://github.com/DelineaXPM/terraform-provider-dsv/commit/3e65b1f9536248d142862d20bff96857ff70b711) - Use dsv_role and dsv_client in the example.
+- [`6479e78`](https://github.com/DelineaXPM/terraform-provider-dsv/commit/6479e7857abfe67346d0db0a581bb507c3be833e) - Update dsv-sdk-go imports to use the new location
+- [`1d4b3bd`](https://github.com/DelineaXPM/terraform-provider-dsv/commit/1d4b3bd3e80a094773db483d476ac23f78ff07ee) - Initial version.
