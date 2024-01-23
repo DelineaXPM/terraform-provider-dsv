@@ -64,7 +64,7 @@ func BuildAll() error {
 	)
 }
 
-// 🔨 Release generates a release and validates the required environment variables are available.
+// 🔨 Release generates a release for the current platform.
 func Release() error {
 	magetoolsutils.CheckPtermDebug()
 	binary, err := req.ResolveBinaryByInstall("goreleaser", "github.com/goreleaser/goreleaser@latest")
@@ -72,18 +72,40 @@ func Release() error {
 		return err
 	}
 
-	if _, err = checkEnvVar("GITHUB_TOKEN", true); err != nil {
+	if _, err = checkEnvVar("DOCKER_ORG", true); err != nil {
 		return err
 	}
 	if _, err = checkEnvVar("GPG_FINGERPRINT", true); err != nil {
 		return err
 	}
 
+	changieBinary, err := req.ResolveBinaryByInstall("changie", "github.com/miniscruff/changie@latest")
+	if err != nil {
+		pterm.Error.Println("unable to install changelog binary")
+		return err
+	}
+	releaseVersion, err := sh.Output(changieBinary, "latest")
+	if err != nil {
+		pterm.Warning.Printfln("changie pulling latest release note version failure: %v", err)
+	}
+	cleanVersion := strings.TrimSpace(releaseVersion)
+	cleanpath := filepath.Join(".changes", cleanVersion+".md")
+	if os.Getenv("GITHUB_WORKSPACE") != "" {
+		cleanpath = filepath.Join(os.Getenv("GITHUB_WORKSPACE"), ".changes", cleanVersion+".md")
+	}
+
 	releaserArgs := []string{
 		"release",
 		"--clean",
+		"--skip-validate",
+		fmt.Sprintf("--release-notes=%s", cleanpath),
 	}
 	pterm.Debug.Printfln("goreleaser: %+v", releaserArgs)
 
-	return sh.RunV(binary, releaserArgs...)
+	return sh.RunWithV(map[string]string{
+		"GORELEASER_CURRENT_TAG": cleanVersion,
+	},
+		binary,
+		releaserArgs...,
+	)
 }
