@@ -31,7 +31,7 @@ jobs:
         uses: magnetikonline/action-golang-cache@777394c89f8ed6fcf1649505277c46c1cd06494d # v4
         with:
           go-version-file: go.mod
-      - uses: aquaproj/aqua-installer@61e2563dfe7674cbf74fe6ec212e444198a3bb00 # tag=v2.0.2
+      - uses: aquaproj/aqua-installer@928a2ee4243a9ee8312d80dc8cbaca88fb602a91 # v2.2.0
         with:
           aqua_version: v2.21.3
           enable_aqua_install: true
