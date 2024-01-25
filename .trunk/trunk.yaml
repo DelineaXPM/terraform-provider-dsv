@@ -24,7 +24,7 @@ actions:
         - git_hooks: [pre-push]
 runtimes:
   enabled:
-    - go@1.19.5
+    - go@1.21.6
     - node@18.12.1
     - python@3.10.8
 lint:
