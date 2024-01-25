@@ -3,6 +3,8 @@ name: lint
 on:
   # Run CI against all pushes (direct commits, also merged PRs), Pull Requests
   pull_request:
+    branches:
+      - main
   workflow_dispatch:
   workflow_call:
 permissions:
