@@ -3,8 +3,8 @@ dist: .artifacts/goreleaser
 # Visit https://goreleaser.com for documentation on how to customize this
 # behavior.
 env:
-  - SLACK_CHANNEL='{{ .Env.SLACK_CHANNEL }}'
-  - SLACK_WEBHOOK='{{ .Env.SLACK_WEBHOOK }}'
+  - SLACK_CHANNEL={{ if index .Env "SLACK_CHANNEL" }}{{ .Env.SLACK_CHANNEL }}{{else}}''{{end}}''
+  - SLACK_WEBHOOK={{ if index .Env "SLACK_WEBHOOK" }}{{ .Env.SLACK_WEBHOOK }}{{else}}''{{end}}''
 before:
   hooks:
     # this is just an example and not a requirement for provider building/publishing
