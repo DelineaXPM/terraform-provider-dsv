@@ -1,5 +1,7 @@
 module github.com/DelineaXPM/terraform-provider-dsv/v2
 
+go 1.21
+
 require (
 	github.com/DelineaXPM/dsv-sdk-go/v2 v2.1.0
 	github.com/magefile/mage v1.15.0
@@ -99,7 +101,3 @@ require (
 	google.golang.org/genproto v0.0.0-20230410155749-daa745c078e1 // indirect
 	google.golang.org/grpc v1.56.3 // indirect
 )
-
-go 1.21
-
-toolchain go1.21.6
