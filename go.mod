@@ -1,11 +1,11 @@
 module github.com/DelineaXPM/terraform-provider-dsv/v2
 
-go 1.21.6
+go 1.22.1
 
 require (
-	github.com/DelineaXPM/dsv-sdk-go/v2 v2.1.0
+	github.com/DelineaXPM/dsv-sdk-go/v2 v2.1.2
 	github.com/magefile/mage v1.15.0
-	github.com/pterm/pterm v0.12.76
+	github.com/pterm/pterm v0.12.79
 	github.com/sheldonhull/magetools v1.0.1
 )
 
@@ -39,7 +39,7 @@ require (
 	github.com/agext/levenshtein v1.2.3 // indirect
 	github.com/apparentlymart/go-cidr v1.1.0 // indirect
 	github.com/armon/go-radix v1.0.0 // indirect
-	github.com/aws/aws-sdk-go v1.44.122 // indirect
+	github.com/aws/aws-sdk-go v1.50.3 // indirect
 	github.com/bgentry/go-netrc v0.0.0-20140422174119-9fd32a8b3d3d // indirect
 	github.com/bgentry/speakeasy v0.1.0 // indirect
 	github.com/bitfield/script v0.22.0 // indirect
