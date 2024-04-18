@@ -6,8 +6,8 @@
   "build": {
     "args": {
       "DEVCONTAINER_USER": "vscode",
-      "GOPATH": "/home/vscode/go"
-    }
+      "GOPATH": "/home/vscode/go",
+    },
   },
   "runArgs": ["--init", "--privileged"],
 
@@ -24,7 +24,7 @@
     "source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/home/vscode/.ssh/,type=bind,consistency=cached", // support for SSH keys
     "source=${localEnv:HOME}${localEnv:USERPROFILE}/.envrc,target=/home/vscode/.envrc,type=bind,consistency=cached", // envrc from home to allow direnv to mount credentials
     // cache gopath directory
-    "source=go-path,target=/home/vscode/go/,type=volume"
+    "source=go-path,target=/home/vscode/go/,type=volume",
   ],
   "overrideCommand": false,
   // Configure tool-specific properties.
@@ -37,19 +37,19 @@
         "GitHub.vscode-pull-request-github",
         "yzhang.markdown-all-in-one",
         "sheldon-hull.extension-pack-go",
-        "ms-azuretools.vscode-docker"
-      ]
-    }
+        "ms-azuretools.vscode-docker",
+      ],
+    },
   },
   "settings": {
     "terminal.integrated.profiles.linux": {
       "zsh-login": {
         "args": ["-l"],
         "icon": "terminal-bash",
-        "path": "zsh"
-      }
+        "path": "zsh",
+      },
     },
-    "terminal.integrated.defaultProfile.linux": "zsh-login"
+    "terminal.integrated.defaultProfile.linux": "zsh-login",
   },
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   // "forwardPorts": [],
@@ -61,27 +61,27 @@
   "remoteUser": "vscode",
   "containerEnv": {
     "ENABLE_NONROOT_DOCKER": "true",
-    "GITHUB_OATH_TOKEN": "${localEnv:GITHUB_OATH_TOKEN}"
+    "GITHUB_OATH_TOKEN": "${localEnv:GITHUB_OATH_TOKEN}",
   },
   "remoteEnv": {
-    "ENABLE_NONROOT_DOCKER": "true"
+    "ENABLE_NONROOT_DOCKER": "true",
   },
   "initializeCommand": [".devcontainer/init"],
   "hostRequirements": {
     "cpus": 4,
     "memory": "8gb",
-    "storage": "32gb"
+    "storage": "32gb",
   },
   "features": {
     "ghcr.io/devcontainers/features/common-utils:1": {
       "version": "latest",
       "username": "vscode",
-      "installOhMyZsh": true
+      "installOhMyZsh": true,
     },
     "ghcr.io/devcontainers/features/docker-in-docker:1.0.7": {
       "version": "latest",
       "dockerDashComposeVersion": "v2",
-      "username": "vscode"
-    }
-  }
+      "username": "vscode",
+    },
+  },
 }

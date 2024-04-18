@@ -63,5 +63,3 @@ jobs:
           SLACK_WEBHOOK: ${{ secrets.DSV_SLACK_WEBHOOK }}
           DOCKER_ORG: ${{ secrets.DSV_DOCKER_REGISTRY }}
           GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}
-
-      
