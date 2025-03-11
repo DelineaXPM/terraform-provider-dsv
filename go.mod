@@ -1,6 +1,8 @@
 module github.com/DelineaXPM/terraform-provider-dsv/v2
 
-go 1.22.1
+go 1.23.0
+
+toolchain go1.24.1
 
 require (
 	github.com/DelineaXPM/dsv-sdk-go/v2 v2.1.2
@@ -11,8 +13,7 @@ require (
 
 require (
 	atomicgo.dev/schedule v0.1.0 // indirect
-	cloud.google.com/go/compute v1.19.1 // indirect
-	cloud.google.com/go/compute/metadata v0.2.3 // indirect
+	cloud.google.com/go/compute/metadata v0.3.0 // indirect
 	cloud.google.com/go/iam v0.13.0 // indirect
 	cloud.google.com/go/storage v1.28.1 // indirect
 	github.com/Masterminds/goutils v1.1.1 // indirect
@@ -89,13 +90,13 @@ require (
 	github.com/zclconf/go-cty-yaml v1.0.2 // indirect
 	github.com/ztrue/tracerr v0.4.0 // indirect
 	go.opencensus.io v0.24.0 // indirect
-	golang.org/x/crypto v0.21.0 // indirect
-	golang.org/x/mod v0.10.0 // indirect
+	golang.org/x/crypto v0.35.0 // indirect
+	golang.org/x/mod v0.17.0 // indirect
 	golang.org/x/net v0.23.0 // indirect; indirect // indirect
-	golang.org/x/oauth2 v0.7.0 // indirect
-	golang.org/x/sys v0.18.0 // indirect
-	golang.org/x/term v0.18.0 // indirect
-	golang.org/x/text v0.14.0 // indirect
+	golang.org/x/oauth2 v0.27.0 // indirect
+	golang.org/x/sys v0.30.0 // indirect
+	golang.org/x/term v0.29.0 // indirect
+	golang.org/x/text v0.22.0 // indirect
 	google.golang.org/api v0.114.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/genproto v0.0.0-20230410155749-daa745c078e1 // indirect
