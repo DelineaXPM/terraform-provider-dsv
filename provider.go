@@ -23,6 +23,8 @@ func providerConfig(d *schema.ResourceData) (interface{}, error) {
 		switch strings.ToLower(prvd.(string)) {
 		case "aws":
 			c.Provider = auth.AWS
+		case "azure":
+			c.Provider = auth.AZURE			
 		}
 	}
 	log.Printf("[DEBUG] auth provider is set to %+v", c.Provider)
