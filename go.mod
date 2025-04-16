@@ -5,7 +5,7 @@ go 1.23.0
 toolchain go1.24.1
 
 require (
-	github.com/DelineaXPM/dsv-sdk-go/v2 v2.1.2
+	github.com/DelineaXPM/dsv-sdk-go/v2 v2.2.0
 	github.com/magefile/mage v1.15.0
 	github.com/pterm/pterm v0.12.79
 	github.com/sheldonhull/magetools v1.0.1
@@ -40,7 +40,7 @@ require (
 	github.com/agext/levenshtein v1.2.3 // indirect
 	github.com/apparentlymart/go-cidr v1.1.0 // indirect
 	github.com/armon/go-radix v1.0.0 // indirect
-	github.com/aws/aws-sdk-go v1.50.3 // indirect
+	github.com/aws/aws-sdk-go v1.53.8 // indirect
 	github.com/bgentry/go-netrc v0.0.0-20140422174119-9fd32a8b3d3d // indirect
 	github.com/bgentry/speakeasy v0.1.0 // indirect
 	github.com/bitfield/script v0.22.0 // indirect
@@ -70,8 +70,8 @@ require (
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
 	github.com/klauspost/compress v1.15.11 // indirect
 	github.com/lithammer/fuzzysearch v1.1.8 // indirect
-	github.com/mattn/go-colorable v0.1.13 // indirect
-	github.com/mattn/go-isatty v0.0.17 // indirect
+	github.com/mattn/go-colorable v0.1.14 // indirect
+	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/mattn/go-runewidth v0.0.15 // indirect
 	github.com/mitchellh/cli v1.1.4 // indirect
 	github.com/mitchellh/copystructure v1.2.0 // indirect
