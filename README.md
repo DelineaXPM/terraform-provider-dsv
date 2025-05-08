@@ -77,6 +77,15 @@ dsv_role_name     = "example-role"
 dsv_secret_path   = "/path/to/a/test/secret"
 ```
 
+To run with Azure as auth provider
+
+```hcl
+dsv_auth_provider = "azure"
+dsv_tenant        = "mytenant"
+dsv_role_name     = "example-role"
+dsv_secret_path   = "/path/to/a/test/secret"
+```
+
 ## Troubleshooting
 
 ### Failure running `terraform init -upgrade`
