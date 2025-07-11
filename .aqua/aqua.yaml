@@ -15,8 +15,8 @@ packages:
   - name: magefile/mage@v1.15.0
     tags:
       - release
-  - name: charmbracelet/glow@v1.5.1
-  - name: goreleaser/goreleaser@v1.23.0
+  - name: charmbracelet/glow@v2.1.0
+  - name: goreleaser/goreleaser@v2.9.0
     tags:
       - release
   - name: mvdan/gofumpt@v0.6.0
@@ -25,13 +25,13 @@ packages:
   - name: golang/tools/gomvpkg@v0.17.0
   - name: golang/tools/godoc@v0.17.0
   - name: golang/tools/guru@v0.17.0
-  - name: anchore/syft@v0.102.0
+  - name: anchore/syft@v1.23.1
     tags:
       - release
   - name: direnv/direnv@v2.33.0
   - name: thycotic/dsv-cli@v1.40.6
   - name: hashicorp/terraform@v1.7.1
-  - name: git-town/git-town@v11.1.0
+  - name: git-town/git-town@v20.0.0
   - name: DelineaXPM/dsv-cli@v1.40.6
   - name: gotestyourself/gotestsum@v1.11.0
   - name: cli/cli@v2.42.1
