@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
 
       # https://github.com/magnetikonline/action-golang-cache
       - name: Setup Golang with cache
@@ -40,19 +40,19 @@ jobs:
           AQUA_LOG_LEVEL: debug
           AQUA_OPTS: ''
       - name: mage-tidy
-        uses: magefile/mage-action@6a5dcb5fe61f43d7c08a98bc3cf9bc63c308c08e # v3
+        uses: magefile/mage-action@6f50bbb8ea47d56e62dee92392788acbc8192d0b # v3
         with:
           version: latest
           args: init
 
       - name: Import GPG key
         id: import_gpg
-        uses: crazy-max/ghaction-import-gpg@01dd5d3ca463c7f10f7f4f7b4f177225ac661ee4 # v6
+        uses: crazy-max/ghaction-import-gpg@e89d40939c28e39f97cf32126055eeae86ba74ec # v6
         with:
           gpg_private_key: ${{ secrets.TERRAFORM_REGISTRY_GPG_PRIVATE_KEY }}
           passphrase: ${{ secrets.TERRAFORM_REGISTRY_PASSPHRASE }}
       - name: mage-release
-        uses: magefile/mage-action@6a5dcb5fe61f43d7c08a98bc3cf9bc63c308c08e # v3
+        uses: magefile/mage-action@6f50bbb8ea47d56e62dee92392788acbc8192d0b # v3
         with:
           version: latest
           args: release
