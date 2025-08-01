@@ -3,43 +3,43 @@
 # https://aquaproj.github.io/
 registries:
   - type: standard
-    ref: v4.126.0 # renovate: depName=aquaproj/aqua-registry
+    ref: v4.397.0 # renovate: depName=aquaproj/aqua-registry
 packages:
-  - name: miniscruff/changie@v1.18.0
+  - name: miniscruff/changie@v1.22.1
     tags:
       - release
-  - name: golang/go@go1.21.6
+  - name: golang/go@go1.24.5
     tags:
       - release
-  - name: direnv/direnv@v2.33.0
+  - name: direnv/direnv@v2.37.1
   - name: magefile/mage@v1.15.0
     tags:
       - release
-  - name: charmbracelet/glow@v2.1.0
-  - name: goreleaser/goreleaser@v2.9.0
+  - name: charmbracelet/glow@v2.1.1
+  - name: goreleaser/goreleaser@v2.11.2
     tags:
       - release
-  - name: mvdan/gofumpt@v0.6.0
-  - name: golang/tools/gorename@v0.17.0
-  - name: golang/tools/stringer@v0.17.0
-  - name: golang/tools/gomvpkg@v0.17.0
-  - name: golang/tools/godoc@v0.17.0
-  - name: golang/tools/guru@v0.17.0
-  - name: anchore/syft@v1.23.1
+  - name: mvdan/gofumpt@v0.8.0
+  - name: golang/tools/gorename@v0.20.0
+  - name: golang/tools/stringer@v0.20.0
+  - name: golang/tools/gomvpkg@v0.20.0
+  - name: golang/tools/godoc@v0.20.0
+  - name: golang/tools/guru@v0.20.0
+  - name: anchore/syft@v1.29.1
     tags:
       - release
-  - name: direnv/direnv@v2.33.0
-  - name: thycotic/dsv-cli@v1.40.6
-  - name: hashicorp/terraform@v1.7.1
-  - name: git-town/git-town@v20.0.0
-  - name: DelineaXPM/dsv-cli@v1.40.6
-  - name: gotestyourself/gotestsum@v1.11.0
-  - name: cli/cli@v2.42.1
+  - name: direnv/direnv@v2.37.1
+  - name: thycotic/dsv-cli@v1.41.1
+  - name: hashicorp/terraform@v1.12.2
+  - name: git-town/git-town@v20.2.0
+  - name: DelineaXPM/dsv-cli@v1.41.1
+  - name: gotestyourself/gotestsum@v1.12.3
+  - name: cli/cli@v2.76.2
     tags:
       - release
-  - name: mikefarah/yq@v4.40.5
+  - name: mikefarah/yq@v4.47.1
     tags:
       - release
-  - name: hashicorp/terraform-plugin-docs@v0.18.0
+  - name: hashicorp/terraform-plugin-docs@v0.22.0
     tags:
       - release
