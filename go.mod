@@ -84,7 +84,7 @@ require (
 	github.com/posener/complete v1.2.3 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
 	github.com/spf13/afero v1.9.2 // indirect
-	github.com/ulikunitz/xz v0.5.10 // indirect
+	github.com/ulikunitz/xz v0.5.15 // indirect
 	github.com/xo/terminfo v0.0.0-20220910002029-abceb7e1c41e // indirect
 	github.com/zclconf/go-cty v1.11.1 // indirect
 	github.com/zclconf/go-cty-yaml v1.0.2 // indirect
