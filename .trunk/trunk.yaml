@@ -24,7 +24,7 @@ actions:
         - git_hooks: [pre-push]
 runtimes:
   enabled:
-    - go@1.21.6
+    - go@1.26.8
     - node@18.12.1
     - python@3.10.8
 lint:
@@ -35,7 +35,7 @@ lint:
     - git-diff-check
     - gitleaks@8.18.1
     - gofmt@1.20.4
-    - golangci-lint@1.55.2
+    - golangci-lint@1.64.8
     - markdownlint@0.38.0
     - prettier@3.2.4
     - taplo@0.8.1
