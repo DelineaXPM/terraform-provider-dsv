@@ -1,0 +1,7 @@
+kind: "\U0001F916 CI & Build"
+body:
+  Release job timeout raised from 15 to 30 minutes (the v1.13.0 build alone took
+  9m13s). Goreleaser's Slack announce is disabled; the GitHub Slack app already posts
+  releases. Fixed a stray quote in the Slack env templates that broke the webhook
+  URL.
+time: 2026-09-24T09:01:57.714159-07:00
