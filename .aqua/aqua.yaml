@@ -40,6 +40,6 @@ packages:
   - name: mikefarah/yq@v4.40.5
     tags:
       - release
-  - name: hashicorp/terraform-plugin-docs@v0.18.0
+  - name: hashicorp/terraform-plugin-docs@v0.25.0
     tags:
       - release

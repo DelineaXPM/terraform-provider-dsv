@@ -34,7 +34,7 @@ func checkEnvVar(envVar string, required bool) (string, error) { //nolint:unpara
 // 🔨 Build builds the project for the current platform.
 func Build() error {
 	magetoolsutils.CheckPtermDebug()
-	binary, err := req.ResolveBinaryByInstall("goreleaser", "github.com/goreleaser/goreleaser@latest")
+	binary, err := req.ResolveBinaryByInstall("goreleaser", "github.com/goreleaser/goreleaser/v2@v2.9.0")
 	if err != nil {
 		return err
 	}
@@ -54,7 +54,7 @@ func Build() error {
 // If there is no additional platforms configured in the task, then basically this will just be the same as `mage build`.
 func BuildAll() error {
 	magetoolsutils.CheckPtermDebug()
-	binary, err := req.ResolveBinaryByInstall("goreleaser", "github.com/goreleaser/goreleaser@latest")
+	binary, err := req.ResolveBinaryByInstall("goreleaser", "github.com/goreleaser/goreleaser/v2@v2.9.0")
 	if err != nil {
 		return err
 	}
@@ -69,7 +69,7 @@ func BuildAll() error {
 // 🔨 Release generates a release for the current platform.
 func Release() error {
 	magetoolsutils.CheckPtermDebug()
-	binary, err := req.ResolveBinaryByInstall("goreleaser", "github.com/goreleaser/goreleaser@latest")
+	binary, err := req.ResolveBinaryByInstall("goreleaser", "github.com/goreleaser/goreleaser/v2@v2.9.0")
 	if err != nil {
 		return err
 	}
@@ -96,7 +96,7 @@ func Release() error {
 	releaserArgs := []string{
 		"release",
 		"--clean",
-		"--skip-validate",
+		"--skip=validate",
 		fmt.Sprintf("--release-notes=%s", cleanpath),
 	}
 	pterm.Debug.Printfln("goreleaser: %+v", releaserArgs)
