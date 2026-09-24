@@ -1,4 +1,5 @@
 ---
+version: 2
 dist: .artifacts/goreleaser
 # Visit https://goreleaser.com for documentation on how to customize this
 # behavior.
@@ -34,9 +35,12 @@ builds:
     ignore:
       - goos: darwin
         goarch: '386'
+      # Go 1.26 removed the windows/arm (32-bit) port.
+      - goos: windows
+        goarch: arm
     binary: '{{ .ProjectName }}_v{{ .Version }}'
 archives:
-  - format: zip
+  - formats: [zip]
     name_template: '{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}'
 checksum:
   name_template: '{{ .ProjectName }}_{{ .Version }}_SHA256SUMS'
@@ -71,7 +75,7 @@ sboms:
     documents:
       - '${artifact}.spdx.sbom'
 changelog:
-  skip: false
+  disable: false
   sort: asc
   use: github
   groups:

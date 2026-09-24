@@ -1,0 +1,6 @@
+kind: "\U0001F916 CI & Build"
+body:
+  'Release tooling works under Go 1.26: goreleaser v1 → v2.9.0 (config migrated
+  to version 2), tfplugindocs v0.18.0 → v0.25.0 (old one carried an expired HashiCorp
+  PGP key). windows/arm (32-bit) is no longer built, as Go 1.26 removed that port.'
+time: 2026-09-24T08:05:10.82481-07:00

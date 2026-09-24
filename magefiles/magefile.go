@@ -40,7 +40,7 @@ func Init() error { //nolint:deadcode // Not dead, it's alive.
 
 	pterm.Info.Println("Installing Core CI Dependencies")
 	if err := tooling.SilentInstallTools([]string{
-		"github.com/goreleaser/goreleaser@latest",
+		"github.com/goreleaser/goreleaser/v2@v2.9.0",
 		"github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@latest",
 		// "github.com/release-lab/whatchanged/cmd/whatchanged@latest",
 	}); err != nil {
