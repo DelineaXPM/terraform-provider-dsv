@@ -62,8 +62,33 @@ cloud.google.com/go/storage/experimental
 cloud.google.com/go/storage/internal
 cloud.google.com/go/storage/internal/apiv2
 cloud.google.com/go/storage/internal/apiv2/storagepb
-# github.com/DelineaXPM/dsv-sdk-go/v2 v2.1.2
-## explicit; go 1.21
+# github.com/Azure/go-autorest v14.2.0+incompatible
+## explicit
+github.com/Azure/go-autorest
+# github.com/Azure/go-autorest/autorest v0.11.29
+## explicit; go 1.15
+github.com/Azure/go-autorest/autorest
+github.com/Azure/go-autorest/autorest/azure
+# github.com/Azure/go-autorest/autorest/adal v0.9.22
+## explicit; go 1.15
+github.com/Azure/go-autorest/autorest/adal
+# github.com/Azure/go-autorest/autorest/azure/auth v0.5.13
+## explicit; go 1.15
+github.com/Azure/go-autorest/autorest/azure/auth
+# github.com/Azure/go-autorest/autorest/azure/cli v0.4.6
+## explicit; go 1.15
+github.com/Azure/go-autorest/autorest/azure/cli
+# github.com/Azure/go-autorest/autorest/date v0.3.0
+## explicit; go 1.12
+github.com/Azure/go-autorest/autorest/date
+# github.com/Azure/go-autorest/logger v0.2.1
+## explicit; go 1.12
+github.com/Azure/go-autorest/logger
+# github.com/Azure/go-autorest/tracing v0.6.0
+## explicit; go 1.12
+github.com/Azure/go-autorest/tracing
+# github.com/DelineaXPM/dsv-sdk-go/v2 v2.3.0
+## explicit; go 1.23.0
 github.com/DelineaXPM/dsv-sdk-go/v2/auth
 github.com/DelineaXPM/dsv-sdk-go/v2/vault
 # github.com/GoogleCloudPlatform/opentelemetry-operations-go/detectors/gcp v1.33.0
@@ -96,7 +121,7 @@ github.com/apparentlymart/go-textseg/v13/textseg
 # github.com/armon/go-radix v1.0.0
 ## explicit
 github.com/armon/go-radix
-# github.com/aws/aws-sdk-go v1.50.3
+# github.com/aws/aws-sdk-go v1.53.8
 ## explicit; go 1.19
 github.com/aws/aws-sdk-go/aws
 github.com/aws/aws-sdk-go/aws/auth/bearer
@@ -278,12 +303,15 @@ github.com/bgentry/go-netrc/netrc
 # github.com/bgentry/speakeasy v0.1.0
 ## explicit
 github.com/bgentry/speakeasy
-# github.com/bitfield/script v0.22.0
-## explicit; go 1.12
+# github.com/bitfield/script v0.22.1
+## explicit; go 1.18
 github.com/bitfield/script
 # github.com/cespare/xxhash/v2 v2.3.0
 ## explicit; go 1.11
 github.com/cespare/xxhash/v2
+# github.com/clipperhouse/uax29/v2 v2.7.0
+## explicit; go 1.18
+github.com/clipperhouse/uax29/v2/graphemes
 # github.com/cncf/xds/go v0.0.0-20260202195803-dba9d589def2
 ## explicit; go 1.24.6
 github.com/cncf/xds/go/udpa/annotations
@@ -294,9 +322,12 @@ github.com/cncf/xds/go/xds/data/orca/v3
 github.com/cncf/xds/go/xds/service/orca/v3
 github.com/cncf/xds/go/xds/type/matcher/v3
 github.com/cncf/xds/go/xds/type/v3
-# github.com/containerd/console v1.0.3
+# github.com/containerd/console v1.0.5
 ## explicit; go 1.13
 github.com/containerd/console
+# github.com/dimchansky/utfbom v1.1.1
+## explicit
+github.com/dimchansky/utfbom
 # github.com/dustin/go-humanize v1.0.1
 ## explicit; go 1.16
 github.com/dustin/go-humanize
@@ -364,6 +395,9 @@ github.com/go-logr/logr/funcr
 # github.com/go-logr/stdr v1.2.2
 ## explicit; go 1.16
 github.com/go-logr/stdr
+# github.com/golang-jwt/jwt/v4 v4.5.2
+## explicit; go 1.16
+github.com/golang-jwt/jwt/v4
 # github.com/golang/protobuf v1.5.4
 ## explicit; go 1.17
 github.com/golang/protobuf/proto
@@ -416,7 +450,7 @@ github.com/googleapis/gax-go/v2/internallog
 github.com/googleapis/gax-go/v2/internallog/grpclog
 github.com/googleapis/gax-go/v2/internallog/internal
 github.com/googleapis/gax-go/v2/iterator
-# github.com/gookit/color v1.5.4
+# github.com/gookit/color v1.6.0
 ## explicit; go 1.18
 github.com/gookit/color
 # github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.74
@@ -508,7 +542,7 @@ github.com/huandu/xstrings
 # github.com/imdario/mergo v0.3.13
 ## explicit; go 1.13
 github.com/imdario/mergo
-# github.com/itchyny/gojq v0.12.12
+# github.com/itchyny/gojq v0.12.13
 ## explicit; go 1.18
 github.com/itchyny/gojq
 # github.com/itchyny/timefmt-go v0.1.5
@@ -530,8 +564,8 @@ github.com/klauspost/compress/zstd/internal/xxhash
 # github.com/lithammer/fuzzysearch v1.1.8
 ## explicit; go 1.15
 github.com/lithammer/fuzzysearch/fuzzy
-# github.com/magefile/mage v1.15.0
-## explicit; go 1.12
+# github.com/magefile/mage v1.17.2
+## explicit; go 1.18
 github.com/magefile/mage/mg
 github.com/magefile/mage/sh
 # github.com/mattn/go-colorable v0.1.14
@@ -540,8 +574,8 @@ github.com/mattn/go-colorable
 # github.com/mattn/go-isatty v0.0.20
 ## explicit; go 1.15
 github.com/mattn/go-isatty
-# github.com/mattn/go-runewidth v0.0.15
-## explicit; go 1.9
+# github.com/mattn/go-runewidth v0.0.20
+## explicit; go 1.20
 github.com/mattn/go-runewidth
 # github.com/mitchellh/cli v1.1.4
 ## explicit; go 1.11
@@ -581,15 +615,12 @@ github.com/planetscale/vtprotobuf/types/known/wrapperspb
 github.com/posener/complete
 github.com/posener/complete/cmd
 github.com/posener/complete/cmd/install
-# github.com/pterm/pterm v0.12.79
-## explicit; go 1.21
+# github.com/pterm/pterm v0.12.83
+## explicit; go 1.24.0
 github.com/pterm/pterm
 github.com/pterm/pterm/internal
-# github.com/rivo/uniseg v0.4.4
-## explicit; go 1.18
-github.com/rivo/uniseg
-# github.com/sheldonhull/magetools v1.0.1
-## explicit; go 1.18
+# github.com/sheldonhull/magetools v1.0.2
+## explicit; go 1.21
 github.com/sheldonhull/magetools/ci
 github.com/sheldonhull/magetools/gotools
 github.com/sheldonhull/magetools/pkg/magetoolsutils
@@ -736,6 +767,8 @@ golang.org/x/crypto/openpgp/errors
 golang.org/x/crypto/openpgp/packet
 golang.org/x/crypto/openpgp/s2k
 golang.org/x/crypto/pbkdf2
+golang.org/x/crypto/pkcs12
+golang.org/x/crypto/pkcs12/internal/rc2
 golang.org/x/crypto/scrypt
 # golang.org/x/mod v0.41.0
 ## explicit; go 1.26.0
@@ -1057,8 +1090,8 @@ google.golang.org/protobuf/types/known/fieldmaskpb
 google.golang.org/protobuf/types/known/structpb
 google.golang.org/protobuf/types/known/timestamppb
 google.golang.org/protobuf/types/known/wrapperspb
-# mvdan.cc/sh/v3 v3.6.0
-## explicit; go 1.18
+# mvdan.cc/sh/v3 v3.7.0
+## explicit; go 1.19
 mvdan.cc/sh/v3/expand
 mvdan.cc/sh/v3/fileutil
 mvdan.cc/sh/v3/pattern
