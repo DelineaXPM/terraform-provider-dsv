@@ -2,7 +2,7 @@ module github.com/DelineaXPM/terraform-provider-dsv/v2
 
 go 1.26.0
 
-toolchain go1.26.8
+toolchain go1.26.9
 
 require (
 	github.com/DelineaXPM/dsv-sdk-go/v2 v2.1.2
