@@ -1,7 +1,6 @@
 package pterm
 
 import (
-	"fmt"
 	"io"
 	"strings"
 
@@ -12,13 +11,16 @@ import (
 
 // BoxPrinter is able to render a box around printables.
 type BoxPrinter struct {
-	Title                   string
-	TitleTopLeft            bool
-	TitleTopRight           bool
-	TitleTopCenter          bool
-	TitleBottomLeft         bool
-	TitleBottomRight        bool
-	TitleBottomCenter       bool
+	Title             string
+	TitleTopLeft      bool
+	TitleTopRight     bool
+	TitleTopCenter    bool
+	TitleBottomLeft   bool
+	TitleBottomRight  bool
+	TitleBottomCenter bool
+	// TitleStyle styles the Title. When nil, the theme's BoxTitleStyle is
+	// used.
+	TitleStyle              *Style
 	TextStyle               *Style
 	VerticalString          string
 	BoxStyle                *Style
@@ -36,14 +38,15 @@ type BoxPrinter struct {
 
 // DefaultBox is the default BoxPrinter.
 var DefaultBox = BoxPrinter{
-	VerticalString:          "|",
-	TopRightCornerString:    "└",
-	TopLeftCornerString:     "┘",
-	BottomLeftCornerString:  "┐",
-	BottomRightCornerString: "┌",
+	VerticalString:          "│",
+	TopRightCornerString:    "╰",
+	TopLeftCornerString:     "╯",
+	BottomLeftCornerString:  "╮",
+	BottomRightCornerString: "╭",
 	HorizontalString:        "─",
 	BoxStyle:                &ThemeDefault.BoxStyle,
 	TextStyle:               &ThemeDefault.BoxTextStyle,
+	TitleStyle:              &ThemeDefault.BoxTitleStyle,
 	RightPadding:            1,
 	LeftPadding:             1,
 	TopPadding:              0,
@@ -57,6 +60,12 @@ func (p BoxPrinter) WithTitle(str string) *BoxPrinter {
 	return &p
 }
 
+// WithTitleStyle returns a new box with a specific TitleStyle.
+func (p BoxPrinter) WithTitleStyle(style *Style) *BoxPrinter {
+	p.TitleStyle = style
+	return &p
+}
+
 // WithTitleTopLeft returns a new box with a specific Title alignment.
 func (p BoxPrinter) WithTitleTopLeft(b ...bool) *BoxPrinter {
 	b2 := internal.WithBoolean(b)
@@ -66,6 +75,7 @@ func (p BoxPrinter) WithTitleTopLeft(b ...bool) *BoxPrinter {
 	p.TitleBottomLeft = false
 	p.TitleBottomRight = false
 	p.TitleBottomCenter = false
+
 	return &p
 }
 
@@ -78,6 +88,7 @@ func (p BoxPrinter) WithTitleTopRight(b ...bool) *BoxPrinter {
 	p.TitleBottomLeft = false
 	p.TitleBottomRight = false
 	p.TitleBottomCenter = false
+
 	return &p
 }
 
@@ -90,6 +101,7 @@ func (p BoxPrinter) WithTitleTopCenter(b ...bool) *BoxPrinter {
 	p.TitleBottomLeft = false
 	p.TitleBottomRight = false
 	p.TitleBottomCenter = false
+
 	return &p
 }
 
@@ -102,6 +114,7 @@ func (p BoxPrinter) WithTitleBottomLeft(b ...bool) *BoxPrinter {
 	p.TitleBottomLeft = b2
 	p.TitleBottomRight = false
 	p.TitleBottomCenter = false
+
 	return &p
 }
 
@@ -114,6 +127,7 @@ func (p BoxPrinter) WithTitleBottomRight(b ...bool) *BoxPrinter {
 	p.TitleBottomLeft = false
 	p.TitleBottomRight = b2
 	p.TitleBottomCenter = false
+
 	return &p
 }
 
@@ -126,6 +140,7 @@ func (p BoxPrinter) WithTitleBottomCenter(b ...bool) *BoxPrinter {
 	p.TitleBottomLeft = false
 	p.TitleBottomRight = false
 	p.TitleBottomCenter = b2
+
 	return &p
 }
 
@@ -182,7 +197,9 @@ func (p BoxPrinter) WithTopPadding(padding int) *BoxPrinter {
 	if padding < 0 {
 		padding = 0
 	}
+
 	p.TopPadding = padding
+
 	return &p
 }
 
@@ -191,7 +208,21 @@ func (p BoxPrinter) WithBottomPadding(padding int) *BoxPrinter {
 	if padding < 0 {
 		padding = 0
 	}
+
 	p.BottomPadding = padding
+
+	return &p
+}
+
+// WithVerticalPadding returns a new box with a specific TopPadding and BottomPadding.
+func (p BoxPrinter) WithVerticalPadding(padding int) *BoxPrinter {
+	if padding < 0 {
+		padding = 0
+	}
+
+	p.TopPadding = padding
+	p.BottomPadding = padding
+
 	return &p
 }
 
@@ -200,7 +231,9 @@ func (p BoxPrinter) WithRightPadding(padding int) *BoxPrinter {
 	if padding < 0 {
 		padding = 0
 	}
+
 	p.RightPadding = padding
+
 	return &p
 }
 
@@ -209,7 +242,35 @@ func (p BoxPrinter) WithLeftPadding(padding int) *BoxPrinter {
 	if padding < 0 {
 		padding = 0
 	}
+
 	p.LeftPadding = padding
+
+	return &p
+}
+
+// WithHorizontalPadding returns a new box with a specific LeftPadding and RightPadding.
+func (p BoxPrinter) WithHorizontalPadding(padding int) *BoxPrinter {
+	if padding < 0 {
+		padding = 0
+	}
+
+	p.LeftPadding = padding
+	p.RightPadding = padding
+
+	return &p
+}
+
+// WithPadding returns a new box with a specific padding on all directions.
+func (p BoxPrinter) WithPadding(padding int) *BoxPrinter {
+	if padding < 0 {
+		padding = 0
+	}
+
+	p.TopPadding = padding
+	p.BottomPadding = padding
+	p.LeftPadding = padding
+	p.RightPadding = padding
+
 	return &p
 }
 
@@ -221,13 +282,19 @@ func (p BoxPrinter) WithWriter(writer io.Writer) *BoxPrinter {
 
 // Sprint formats using the default formats for its operands and returns the resulting string.
 // Spaces are added between operands when neither is a string.
-func (p BoxPrinter) Sprint(a ...interface{}) string {
+func (p BoxPrinter) Sprint(a ...any) string {
 	if p.BoxStyle == nil {
 		p.BoxStyle = &ThemeDefault.BoxStyle
 	}
+
 	if p.TextStyle == nil {
 		p.TextStyle = &ThemeDefault.BoxTextStyle
 	}
+
+	if p.TitleStyle == nil {
+		p.TitleStyle = &ThemeDefault.BoxTitleStyle
+	}
+
 	maxWidth := internal.GetStringMaxWidth(Sprint(a...))
 
 	var topLine string
@@ -243,27 +310,36 @@ func (p BoxPrinter) Sprint(a ...interface{}) string {
 		if (maxWidth + p.RightPadding + p.LeftPadding - 4) < internal.GetStringMaxWidth(p.Title) {
 			p.RightPadding = internal.GetStringMaxWidth(p.Title) - (maxWidth + p.RightPadding + p.LeftPadding - 5)
 		}
-		if p.TitleTopLeft {
+
+		p.Title = p.TitleStyle.Sprint(p.Title)
+
+		switch {
+		case p.TitleTopLeft:
 			topLine = p.BoxStyle.Sprint(p.BottomRightCornerString) + internal.AddTitleToLine(p.Title, p.BoxStyle.Sprint(p.HorizontalString), maxWidth+p.LeftPadding+p.RightPadding, true) + p.BoxStyle.Sprint(p.BottomLeftCornerString)
 			bottomLine = p.BoxStyle.Sprint(p.TopRightCornerString) + strings.Repeat(p.BoxStyle.Sprint(p.HorizontalString),
 				maxWidth+p.LeftPadding+p.RightPadding) + p.BoxStyle.Sprint(p.TopLeftCornerString)
-		} else if p.TitleTopRight {
+
+		case p.TitleTopRight:
 			topLine = p.BoxStyle.Sprint(p.BottomRightCornerString) + internal.AddTitleToLine(p.Title, p.BoxStyle.Sprint(p.HorizontalString), maxWidth+p.LeftPadding+p.RightPadding, false) + p.BoxStyle.Sprint(p.BottomLeftCornerString)
 			bottomLine = p.BoxStyle.Sprint(p.TopRightCornerString) + strings.Repeat(p.BoxStyle.Sprint(p.HorizontalString),
 				maxWidth+p.LeftPadding+p.RightPadding) + p.BoxStyle.Sprint(p.TopLeftCornerString)
-		} else if p.TitleTopCenter {
+
+		case p.TitleTopCenter:
 			topLine = p.BoxStyle.Sprint(p.BottomRightCornerString) + internal.AddTitleToLineCenter(p.Title, p.BoxStyle.Sprint(p.HorizontalString), maxWidth+p.LeftPadding+p.RightPadding) + p.BoxStyle.Sprint(p.BottomLeftCornerString)
 			bottomLine = p.BoxStyle.Sprint(p.TopRightCornerString) + strings.Repeat(p.BoxStyle.Sprint(p.HorizontalString),
 				maxWidth+p.LeftPadding+p.RightPadding) + p.BoxStyle.Sprint(p.TopLeftCornerString)
-		} else if p.TitleBottomLeft {
+
+		case p.TitleBottomLeft:
 			topLine = p.BoxStyle.Sprint(p.BottomRightCornerString) + strings.Repeat(p.BoxStyle.Sprint(p.HorizontalString),
 				maxWidth+p.LeftPadding+p.RightPadding) + p.BoxStyle.Sprint(p.BottomLeftCornerString)
 			bottomLine = p.BoxStyle.Sprint(p.TopRightCornerString) + internal.AddTitleToLine(p.Title, p.BoxStyle.Sprint(p.HorizontalString), maxWidth+p.LeftPadding+p.RightPadding, true) + p.BoxStyle.Sprint(p.TopLeftCornerString)
-		} else if p.TitleBottomRight {
+
+		case p.TitleBottomRight:
 			topLine = p.BoxStyle.Sprint(p.BottomRightCornerString) + strings.Repeat(p.BoxStyle.Sprint(p.HorizontalString),
 				maxWidth+p.LeftPadding+p.RightPadding) + p.BoxStyle.Sprint(p.BottomLeftCornerString)
 			bottomLine = p.BoxStyle.Sprint(p.TopRightCornerString) + internal.AddTitleToLine(p.Title, p.BoxStyle.Sprint(p.HorizontalString), maxWidth+p.LeftPadding+p.RightPadding, false) + p.BoxStyle.Sprint(p.TopLeftCornerString)
-		} else if p.TitleBottomCenter {
+
+		case p.TitleBottomCenter:
 			topLine = p.BoxStyle.Sprint(p.BottomRightCornerString) + strings.Repeat(p.BoxStyle.Sprint(p.HorizontalString),
 				maxWidth+p.LeftPadding+p.RightPadding) + p.BoxStyle.Sprint(p.BottomLeftCornerString)
 			bottomLine = p.BoxStyle.Sprint(p.TopRightCornerString) + internal.AddTitleToLineCenter(p.Title, p.BoxStyle.Sprint(p.HorizontalString), maxWidth+p.LeftPadding+p.RightPadding) + p.BoxStyle.Sprint(p.TopLeftCornerString)
@@ -283,89 +359,84 @@ func (p BoxPrinter) Sprint(a ...interface{}) string {
 				strings.Repeat(" ", p.RightPadding) + p.BoxStyle.Sprint(p.VerticalString)
 		}
 	}
+
 	return topLine + "\n" + strings.Join(ss, "\n") + "\n" + bottomLine
 }
 
 // Sprintln formats using the default formats for its operands and returns the resulting string.
 // Spaces are always added between operands and a newline is appended.
-func (p BoxPrinter) Sprintln(a ...interface{}) string {
+func (p BoxPrinter) Sprintln(a ...any) string {
 	return p.Sprint(strings.TrimSuffix(Sprintln(a...), "\n")) + "\n"
 }
 
 // Sprintf formats according to a format specifier and returns the resulting string.
-func (p BoxPrinter) Sprintf(format string, a ...interface{}) string {
+func (p BoxPrinter) Sprintf(format string, a ...any) string {
 	return p.Sprint(Sprintf(format, a...))
 }
 
 // Sprintfln formats according to a format specifier and returns the resulting string.
 // Spaces are always added between operands and a newline is appended.
-func (p BoxPrinter) Sprintfln(format string, a ...interface{}) string {
+func (p BoxPrinter) Sprintfln(format string, a ...any) string {
 	return p.Sprintf(format, a...) + "\n"
 }
 
 // Print formats using the default formats for its operands and writes to standard output.
 // Spaces are added between operands when neither is a string.
 // It returns the number of bytes written and any write error encountered.
-func (p BoxPrinter) Print(a ...interface{}) *TextPrinter {
+func (p BoxPrinter) Print(a ...any) *TextPrinter {
 	Fprint(p.Writer, p.Sprint(a...))
 	tp := TextPrinter(p)
+
 	return &tp
 }
 
 // Println formats using the default formats for its operands and writes to standard output.
 // Spaces are always added between operands and a newline is appended.
 // It returns the number of bytes written and any write error encountered.
-func (p BoxPrinter) Println(a ...interface{}) *TextPrinter {
+func (p BoxPrinter) Println(a ...any) *TextPrinter {
 	Fprint(p.Writer, p.Sprintln(a...))
 	tp := TextPrinter(p)
+
 	return &tp
 }
 
 // Printf formats according to a format specifier and writes to standard output.
 // It returns the number of bytes written and any write error encountered.
-func (p BoxPrinter) Printf(format string, a ...interface{}) *TextPrinter {
+func (p BoxPrinter) Printf(format string, a ...any) *TextPrinter {
 	Fprint(p.Writer, p.Sprintf(format, a...))
 	tp := TextPrinter(p)
+
 	return &tp
 }
 
 // Printfln formats according to a format specifier and writes to standard output.
 // Spaces are always added between operands and a newline is appended.
 // It returns the number of bytes written and any write error encountered.
-func (p BoxPrinter) Printfln(format string, a ...interface{}) *TextPrinter {
+func (p BoxPrinter) Printfln(format string, a ...any) *TextPrinter {
 	Fprint(p.Writer, p.Sprintfln(format, a...))
 	tp := TextPrinter(p)
+
 	return &tp
 }
 
 // PrintOnError prints every error which is not nil.
 // If every error is nil, nothing will be printed.
 // This can be used for simple error checking.
-func (p BoxPrinter) PrintOnError(a ...interface{}) *TextPrinter {
-	for _, arg := range a {
-		if err, ok := arg.(error); ok {
-			if err != nil {
-				p.Println(err)
-			}
-		}
-	}
+func (p BoxPrinter) PrintOnError(a ...any) *TextPrinter {
+	printOnError(p, a...)
 
 	tp := TextPrinter(p)
+
 	return &tp
 }
 
 // PrintOnErrorf wraps every error which is not nil and prints it.
 // If every error is nil, nothing will be printed.
 // This can be used for simple error checking.
-func (p BoxPrinter) PrintOnErrorf(format string, a ...interface{}) *TextPrinter {
-	for _, arg := range a {
-		if err, ok := arg.(error); ok {
-			if err != nil {
-				p.Println(fmt.Errorf(format, err))
-			}
-		}
-	}
+func (p BoxPrinter) PrintOnErrorf(format string, a ...any) *TextPrinter {
+	printOnErrorf(p, format, a...)
 
 	tp := TextPrinter(p)
+
 	return &tp
 }
